@@ -13,12 +13,21 @@ public class Main {
 		File stopTimesFile = new File("data\\stop_times.txt");
 		File stopsFile = new File("data\\stops.txt");
 		
-		UWGraph UWGraph = new UWGraph();
-		UWGraph.convertTxt(stopsFile, stopTimesFile);
+		Graph UWGraph = new Graph();
+		UWGraph.convertTxt(stopsFile, stopTimesFile, false);
 		
 		UWGraph.printAdj();
 		System.out.println("Number of nodes: " + UWGraph.getNbOfNodes());
 		System.out.println("Number of edges: " + UWGraph.getNbOfEdges());
+		//Number of nodes: 2433
+		//Number of edges: 2759
+		
+		Graph WGraph = new Graph();
+		WGraph.convertTxt(stopsFile, stopTimesFile, true);
+		
+		WGraph.printAdj();
+		System.out.println("Number of nodes: " + WGraph.getNbOfNodes());
+		System.out.println("Number of edges: " + WGraph.getNbOfEdges());
 	}
 
 

@@ -8,14 +8,17 @@ import java.util.Scanner;
 import java.util.TreeMap;
 
 @SuppressWarnings("resource")
-public class UWGraph {
+public class Graph {
 
-	private Map<Integer, List<Integer>> map = new TreeMap<Integer,List<Integer>>();
+	private Map<Integer, List<DirectedEdge>> map = new TreeMap<Integer,List<DirectedEdge>>();
 	
-	// convert GTFS data into map for an unweigted graph
-	public void convertTxt(File stopsFile, File stopTimesFile) throws FileNotFoundException {
+	// convert GTFS data into map for a graph
+	public void convertTxt(File stopsFile, File stopTimesFile, boolean weighted) throws FileNotFoundException {
 		addNodesFromTxt(stopsFile);
 		addEdgesFromTxt(stopTimesFile);
+		if (weighted) {
+			addWeightsFromTxt(stopsFile);
+		}
 	}
 	
 	private void addNodesFromTxt(File stopsFile) throws FileNotFoundException {
@@ -35,7 +38,7 @@ public class UWGraph {
 			if (this.map.containsKey(stop_id)) {
 				System.out.println("Node in duplicate: " + stop_id);
 			} else {
-				List<Integer> list = new ArrayList<Integer>();
+				List<DirectedEdge> list = new ArrayList<DirectedEdge>();
 				this.map.put(stop_id, list);
 			}
 			
@@ -62,12 +65,23 @@ public class UWGraph {
 			trip_id = arr[0];
 			stop_id = Integer.parseInt(arr[3]);
 			
-			// if we are still in the same trip
-			if (trip_id.equals(trip_id0)) { // then the 2 stations are connected
+			// if we are still in the same trip, then the 2 stations are connected
+			if (trip_id.equals(trip_id0)) { 
 				if (!this.map.containsKey(stop_id0)) {
 					System.out.println("Node does not exist: " + stop_id0);
-				} else if (!this.map.get(stop_id0).contains(stop_id)){ // to avoid duplicates
-					this.map.get(stop_id0).add(stop_id);
+				} else {
+					List<DirectedEdge> edgesList = this.map.get(stop_id0);
+					boolean exists = false;
+					for (int i = 0; i < edgesList.size(); i++) { // to avoid duplicates
+						if (edgesList.get(i).to() == stop_id) {
+							exists = true;
+							break;
+						}
+					}
+					if (!exists) {
+						DirectedEdge newEdge = new DirectedEdge(stop_id0, stop_id, 1);
+						edgesList.add(newEdge);
+					}
 				}
 			}
 
@@ -76,8 +90,13 @@ public class UWGraph {
 		}
 	}
 
+	private void addWeightsFromTxt(File stopsFile) throws FileNotFoundException {
+		// TODO
+	}
+	
+	
 	public void printAdj() {
-		for (Map.Entry<Integer,List<Integer>> entry : this.map.entrySet()) {
+		for (Map.Entry<Integer,List<DirectedEdge>> entry : this.map.entrySet()) {
 			System.out.println(entry.getKey() + ": " + entry.getValue());
 		}
 	}
@@ -85,7 +104,7 @@ public class UWGraph {
 	public int getNbOfNodes(){
 
 		int number = 0;
-		for (Map.Entry<Integer,List<Integer>> entry : this.map.entrySet()) {
+		for (Map.Entry<Integer,List<DirectedEdge>> entry : this.map.entrySet()) {
 			number++;
 		}
 		return number;
@@ -94,8 +113,8 @@ public class UWGraph {
 	public int getNbOfEdges(){
 
 		int number = 0;
-		for (Map.Entry<Integer,List<Integer>> entry : this.map.entrySet()) {
-			for (Integer edge : entry.getValue()) {
+		for (Map.Entry<Integer,List<DirectedEdge>> entry : this.map.entrySet()) {
+			for (DirectedEdge edge : entry.getValue()) {
 				number++;
 			}
 		}
