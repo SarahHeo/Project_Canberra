@@ -16,7 +16,7 @@ public class Main {
 		Graph UWGraph = new Graph();
 		UWGraph.convertTxt(stopsFile, stopTimesFile, false);
 		
-		UWGraph.printAdj();
+		//UWGraph.printAdj();
 		System.out.println("Number of nodes: " + UWGraph.getNbOfNodes());
 		System.out.println("Number of edges: " + UWGraph.getNbOfEdges());
 		//Number of nodes: 2433

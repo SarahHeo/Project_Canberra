@@ -1,9 +1,9 @@
 
 public class DirectedEdge {
 
-	private final int source;
-	private final int destination;
-	private final double weight;
+	private int source;
+	private int destination;
+	private double weight;
 	
 	public DirectedEdge(int source, int destination, double weight) {
 		this.source = source;
@@ -12,13 +12,16 @@ public class DirectedEdge {
 	}
 	
 	public int from() {
-		return source;
+		return this.source;
 	}
 	public int to() {
-		return destination;
+		return this.destination;
 	}
 	public double weight() {
-		return weight;
+		return this.weight;
+	}
+	public void setWeight(double weight) {
+		this.weight = weight;
 	}
 	
 	@Override

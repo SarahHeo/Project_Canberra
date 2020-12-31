@@ -91,7 +91,54 @@ public class Graph {
 	}
 
 	private void addWeightsFromTxt(File stopsFile) throws FileNotFoundException {
-		// TODO
+		
+		Scanner myReader = new Scanner(stopsFile);
+		myReader.nextLine(); // skip headers line
+		int stop_id;
+		double stop_lat;
+		double stop_long;
+		
+		// Create a map (node, coordinates)
+		Map<Integer, Coordinates> mapCoord = new TreeMap<Integer,Coordinates>();			
+		while (myReader.hasNextLine()) {
+			
+			String line = myReader.nextLine();
+			String[] arr = line.split(",");
+		
+			stop_id = Integer.parseInt(arr[0]);
+			stop_lat = Double.parseDouble(arr[3]);
+			stop_long = Double.parseDouble(arr[4]);
+			
+			if (mapCoord.containsKey(stop_id)) {
+				System.out.println("Node in duplicate: " + stop_id);
+			} else {
+				Coordinates coord = new Coordinates(stop_lat, stop_long);
+				mapCoord.put(stop_id, coord);
+			}
+		}
+		
+		int source;
+		int destination;
+		double sourceLat;
+		double sourceLong;
+		double destinationLat;
+		double destinationLong;
+		double distance;
+		
+		for (Map.Entry<Integer,List<DirectedEdge>> entry : this.map.entrySet()) {
+			for (DirectedEdge edge : entry.getValue()) {
+				source = edge.from();
+				destination = edge.to();
+				sourceLat = mapCoord.get(source).getLatitude();
+				sourceLong = mapCoord.get(source).getLongitude();
+				destinationLat = mapCoord.get(destination).getLatitude();
+				destinationLong = mapCoord.get(destination).getLongitude();
+				
+				// euclidian distance: sqrt((x2-x1)²+(y2-y1)²)
+				distance = Math.sqrt(Math.pow((destinationLat-sourceLat),2) + Math.pow((destinationLong-sourceLong),2));
+				edge.setWeight(distance);
+			}
+		}
 	}
 	
 	
