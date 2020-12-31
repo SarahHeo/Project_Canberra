@@ -141,7 +141,6 @@ public class Graph {
 		}
 	}
 	
-	
 	public void printAdj() {
 		for (Map.Entry<Integer,List<DirectedEdge>> entry : this.map.entrySet()) {
 			System.out.println(entry.getKey() + ": " + entry.getValue());
@@ -167,4 +166,9 @@ public class Graph {
 		}
 		return number;
 	}
+	
+	public Map<Integer,List<DirectedEdge>> getMap(){
+		return this.map;
+	}
+
 }
