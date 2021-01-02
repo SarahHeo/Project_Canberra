@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -20,7 +19,7 @@ public class Graph {
 			addWeightsFromTxt(stopsFile);
 		}
 	}
-	
+
 	private void addNodesFromTxt(File stopsFile) throws FileNotFoundException {
 
 		Scanner myReader = new Scanner(stopsFile);
@@ -134,39 +133,31 @@ public class Graph {
 				destinationLat = mapCoord.get(destination).getLatitude();
 				destinationLong = mapCoord.get(destination).getLongitude();
 				
-				// euclidian distance: sqrt((x2-x1)²+(y2-y1)²)
+				// euclidian distance: sqrt((x2-x1)ï¿½+(y2-y1)ï¿½)
 				distance = Math.sqrt(Math.pow((destinationLat-sourceLat),2) + Math.pow((destinationLong-sourceLong),2));
 				edge.setWeight(distance);
 			}
 		}
 	}
-	
+
 	public void printAdj() {
 		for (Map.Entry<Integer,List<DirectedEdge>> entry : this.map.entrySet()) {
 			System.out.println(entry.getKey() + ": " + entry.getValue());
 		}
 	}
-	
+
 	public int getNbOfNodes(){
-
-		int number = 0;
-		for (Map.Entry<Integer,List<DirectedEdge>> entry : this.map.entrySet()) {
-			number++;
-		}
-		return number;
+		return this.map.entrySet().size();
 	}
-	
+
 	public int getNbOfEdges(){
-
 		int number = 0;
 		for (Map.Entry<Integer,List<DirectedEdge>> entry : this.map.entrySet()) {
-			for (DirectedEdge edge : entry.getValue()) {
-				number++;
-			}
+			number += entry.getValue().size();
 		}
 		return number;
 	}
-	
+
 	public Map<Integer,List<DirectedEdge>> getMap(){
 		return this.map;
 	}
