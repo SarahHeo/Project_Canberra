@@ -10,11 +10,13 @@ import java.util.TreeMap;
 public class Graph {
 
 	private Map<Integer, List<DirectedEdge>> map = new TreeMap<Integer,List<DirectedEdge>>();
+	private boolean weighted;
 	
 	// convert GTFS data into map for a graph
 	public void convertTxt(File stopsFile, File stopTimesFile, boolean weighted) throws FileNotFoundException {
 		addNodesFromTxt(stopsFile);
 		addEdgesFromTxt(stopTimesFile);
+		this.weighted = weighted;
 		if (weighted) {
 			addWeightsFromTxt(stopsFile);
 		}
@@ -141,8 +143,18 @@ public class Graph {
 	}
 
 	public void printAdj() {
-		for (Map.Entry<Integer,List<DirectedEdge>> entry : this.map.entrySet()) {
-			System.out.println(entry.getKey() + ": " + entry.getValue());
+		if (!weighted) {
+			for (Map.Entry<Integer,List<DirectedEdge>> entry : this.map.entrySet()) {
+				System.out.print(entry.getKey() + ": [" );
+				for (DirectedEdge edge : entry.getValue()) {
+					System.out.print(edge.to() + ", ");
+				}
+				System.out.println("]");
+			}
+		} else {
+			for (Map.Entry<Integer,List<DirectedEdge>> entry : this.map.entrySet()) {
+				System.out.println(entry.getKey() + ": " + entry.getValue());
+			}
 		}
 	}
 
@@ -160,6 +172,10 @@ public class Graph {
 
 	public Map<Integer,List<DirectedEdge>> getMap(){
 		return this.map;
+	}
+	
+	public boolean isWeighted() {
+		return this.weighted;
 	}
 
 }
