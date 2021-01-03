@@ -53,12 +53,14 @@ public class Main {
 			
 		/******* Part 4 *******/
 			
-			//DijkstraSP.dijkstra(UWGraph,6155);
-			//DijkstraSP.printShortestPath(6155,6104);
+			DijkstraSP.dijkstra(UWGraph,6155);
+			DijkstraSP.printShortestPath(6155,6104);
+			//DijkstraSP.findShortestPaths(UWGraph);
+			//DijkstraSP.printCountSP(UWGraph);
 			
-			DijkstraSP.findShortestPaths(UWGraph);
-			DijkstraSP.printCountSP(UWGraph);
-			DijkstraSP.printAllShortestPaths();
+			//DijkstraSP.findShortestPaths(UWGraph);
+			//DijkstraSP.printCountSP(UWGraph);
+			//DijkstraSP.printAllShortestPaths();
 			//DijkstraSP.printAllShortestPaths();
 			
 			/*BFSShortestPaths BFSShortestPaths = new BFSShortestPaths();
