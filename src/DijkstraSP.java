@@ -91,7 +91,7 @@ public class DijkstraSP {
 				for (int i = 0 ; i < markedNode.getValue().size() ; i ++) {
 					String path = "";
 					path = markedNode.getKey() + " ";
-					int currentNode = markedNode.getValue().get(i);
+					int currentNode = markedNode.getKey();
 					while (currentNode != startingNode) {
 						path = currentNode + " " + path;
 						// We add the "score" to the edge
@@ -116,8 +116,9 @@ public class DijkstraSP {
 	//}
 	
 	public static void printAllShortestPaths() throws Exception{
-		PrintStream fileOut = new PrintStream("./out.txt");
-		System.setOut(fileOut);
+		// Uncomment the following lines to write the output in a textfile
+		/*PrintStream fileOut = new PrintStream("./out.txt");
+		System.setOut(fileOut);*/
 		for (Map.Entry<Integer, Map<Integer, String>> paths : shortestPaths.entrySet()) {
 			for(Map.Entry<Integer, String> path : paths.getValue().entrySet()) {
 				System.out.println("Shortest path from " + paths.getKey() + " to " + path.getKey() + " is " + path.getValue());
