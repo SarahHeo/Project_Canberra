@@ -95,8 +95,8 @@ public class DijkstraSP {
 					while (currentNode != startingNode) {
 						path = currentNode + " " + path;
 						// We add the "score" to the edge
-						for(DirectedEdge edge : G.getMap().get(currentNode)) {
-							if (edge.from() == currentNode) {
+						for(DirectedEdge edge : G.getMap().get(previous.get(currentNode).get(i))) {
+							if (edge.to() == currentNode) {
 								edge.addToCountSP(1/markedNode.getValue().size());
 							}
 						}
