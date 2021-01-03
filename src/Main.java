@@ -50,14 +50,7 @@ public class Main {
 			//The following lines are taking a lot of time and resources to process, be careful when testing
 			//DijkstraSP.findShortestPaths(UWGraph);
 			//DijkstraSP.printAllShortestPaths();
-			
-			/*BFSShortestPaths BFSShortestPaths = new BFSShortestPaths();
-			BFSShortestPaths.BFS_SP(graphUWUD, 1);
-			int node = 3;
-			System.out.println("Path to node " + node + "? " + BFSShortestPaths.hasPathTo(node));
-			System.out.println("Distance to node " + node + ": " + BFSShortestPaths.distTo(node));
-			System.out.print("Path to node " + node + ": "); BFSShortestPaths.printSP(node);
-			System.out.println();*/
+
 	}
 
 
