@@ -10,7 +10,7 @@ import java.util.TreeMap;
 
 public class Main {
 
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws Exception {
 
 		/******* Part 2 *******/
 			File stopTimesFile = new File("data\\stop_times.txt");
@@ -35,20 +35,30 @@ public class Main {
 		
 		/******* Part 3 *******/
 			
-			System.out.println("Using BFS on unweighted graph:");
-			BFSSP.bfs(UWGraph,6155);
-			BFSSP.printShortestPath(6155, 6104);
+			//System.out.println("Using BFS on unweighted graph:");
+			//BFSSP.bfs(UWGraph,6155);
+			//BFSSP.printShortestPath(6155, 6104);
 			
 			//The following lines are taking a lot of time and resources to process, be careful when testing
 			//BFSSP.findShortestPaths(UWGraph);
 			//BFSSP.printAllShortestPaths();
 			
-			System.out.println("Using Dijkstra on weighted graph:");
-			DijkstraSP.dijkstra(UWGraph,6155);
-			DijkstraSP.printShortestPath(6155,6104);
+			//System.out.println("Using Dijkstra on weighted graph:");
+			//DijkstraSP.dijkstra(UWGraph,6155);
+			//DijkstraSP.printShortestPath(6155,6104);
 			
 			//The following lines are taking a lot of time and resources to process, be careful when testing
 			//DijkstraSP.findShortestPaths(UWGraph);
+			//DijkstraSP.printAllShortestPaths();
+			
+		/******* Part 4 *******/
+			
+			//DijkstraSP.dijkstra(UWGraph,6155);
+			//DijkstraSP.printShortestPath(6155,6104);
+			
+			DijkstraSP.findShortestPaths(UWGraph);
+			DijkstraSP.printCountSP(UWGraph);
+			DijkstraSP.printAllShortestPaths();
 			//DijkstraSP.printAllShortestPaths();
 			
 			/*BFSShortestPaths BFSShortestPaths = new BFSShortestPaths();
@@ -60,6 +70,4 @@ public class Main {
 			System.out.println();*/
 	}
 
-
-	
 }

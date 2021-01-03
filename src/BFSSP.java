@@ -66,12 +66,14 @@ public class BFSSP {
 	
 	
 	public static void findShortestPaths(Graph G) {
+		// Launch a bfs from every starting node
 		for (int startingNode : G.getMap().keySet()) {
 			marked.clear();
 			previous.clear();
 			distance.clear();
 			bfs(G, startingNode);
 			Map<Integer, String> paths = new TreeMap<Integer, String>();
+			// Find the shortest path for every reached node
 			for(Map.Entry<Integer, Integer> markedNode : previous.entrySet()) {
 				String path = "";			
 				int currentNode = markedNode.getKey();
