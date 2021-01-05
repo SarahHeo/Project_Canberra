@@ -10,7 +10,8 @@ public class BFSSP {
 	//private static Map<Integer, Map<Integer, List<Integer>>> shortestPaths2 = new TreeMap<Integer, Map<Integer, List<Integer>>>();
 	private static Map<Integer, Map<Integer, String>> shortestPaths = new TreeMap<Integer, Map<Integer, String>>();
 	
-	public static void bfs(Graph G, int s) {
+	public static List<Integer> bfs(Graph G, int s) {
+		List<Integer> path = new ArrayList<Integer>();
 		List<Integer> toVisitNodes = new ArrayList<Integer>();
 		for (Integer key : G.getMap().keySet()) {
 			marked.put(key, false);
@@ -29,6 +30,7 @@ public class BFSSP {
 
 				int currentNode = toVisitNodes.remove(0);
 				marked.replace(currentNode, true);
+				path.add(currentNode);
 				
 				for (DirectedEdge edge : G.getMap().get(currentNode)) {
 					if (!toVisitNodes.contains(edge.to()) && !marked.get(edge.to())) {
@@ -39,6 +41,7 @@ public class BFSSP {
 				}
 			}
 		}
+		return path;
 	}
 	/*
 	public static void findShortestPaths(Graph G) {

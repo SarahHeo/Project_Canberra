@@ -1,6 +1,4 @@
-import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -10,6 +8,18 @@ public class DijkstraSP {
 	private static Map<Integer, Integer> previous = new TreeMap<Integer, Integer>();
 	private static Map<Integer, Double> distance = new TreeMap<Integer, Double>();
 	private static Map<Integer, Map<Integer, String>> shortestPaths = new TreeMap<Integer, Map<Integer, String>>();
+	
+	public static Map<Integer, Boolean> getMarked() {
+		return marked;
+	}
+	
+	public static Map<Integer, Integer> getPrevious() {
+		return previous;
+	}
+	
+	public static Map<Integer, Double> getDistance() {
+		return distance;
+	}
 	
 	public static void dijkstra(Graph G, int startingNode) {
 		List<Integer> toVisitNodes = new ArrayList<Integer>();
@@ -25,10 +35,7 @@ public class DijkstraSP {
 				}	
 			}
 			
-			boolean end = false;
-			
-			while (!end) {
-				end = false;
+			while (!toVisitNodes.isEmpty()) {  // If there is not any node left to visit, we stop the loop
 				double minimalDistance = Double.POSITIVE_INFINITY;
 				int currentNode = startingNode;
 				// With the for loop below, we choose our node with the minimal distance as our next node
@@ -57,8 +64,6 @@ public class DijkstraSP {
 					}
 				}
 				
-				// If there is not any node left to visit, we stop the loop
-				if (toVisitNodes.isEmpty()) end = true;
 			}
 		} else {
 			System.out.println("Dijkstra algorithm cannot be used as there is a negative weight in the graph!");

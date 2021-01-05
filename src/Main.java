@@ -1,10 +1,5 @@
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
-import java.util.TreeMap;
 
 // import Unweigted_graphs.BFSShortestPaths;
 
@@ -36,8 +31,8 @@ public class Main {
 		/******* Part 3 *******/
 			
 			//System.out.println("Using BFS on unweighted graph:");
-			//BFSSP.bfs(UWGraph,6155);
-			//BFSSP.printShortestPath(6155, 6104);
+			BFSSP.bfs(UWGraph,6155);
+			BFSSP.printShortestPath(6155, 6104);
 			
 			//The following lines are taking a lot of time and resources to process, be careful when testing
 			//BFSSP.findShortestPaths(UWGraph);
@@ -70,6 +65,20 @@ public class Main {
 			System.out.println("Distance to node " + node + ": " + BFSShortestPaths.distTo(node));
 			System.out.print("Path to node " + node + ": "); BFSShortestPaths.printSP(node);
 			System.out.println();*/
+			
+			System.out.println("\\nGaph Clustering");
+			Graph WGraphClustering = new Graph();
+			WGraphClustering.convertTxt(stopsFile, stopTimesFile, false);
+			GraphClustering.findClusters(WGraphClustering);
+			for (Map.Entry<Integer, Cluster> cluster : GraphClustering.getClusters().entrySet()) {
+				System.out.print("Cluster " + cluster.getKey() + " : ");
+				for (int clusterUnit : cluster.getValue().getNodes()) {
+					System.out.print(clusterUnit + " ");
+				}
+				System.out.println("");
+			}
+			
+			
 	}
 
 }
