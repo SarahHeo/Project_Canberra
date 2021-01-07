@@ -16,6 +16,7 @@ public class Main {
 		File stopsFile = new File("data\\stops.txt");
 		Graph UWGraph = new Graph();
 		Graph WGraph = new Graph();
+		Graph UndirectedWGraph = new Graph();
 		
 		do {
 			System.out.println("\n"
@@ -90,20 +91,19 @@ public class Main {
 						
 					/******* Part 4 *******/	
 					case 9:
-						//DijkstraSP.dijkstra(UWGraph,6155);
-						//DijkstraSP.printShortestPath(6155,6104);
-						//DijkstraSP.findShortestPaths(UWGraph);
-						//DijkstraSP.printCountSP(UWGraph);
+						UndirectedWGraph = new Graph();
+						UndirectedWGraph.convertTxt(stopsFile, stopTimesFile, true, false);
+						System.out.println("Number of nodes: " + UndirectedWGraph.getNbOfNodes()); //Number of nodes: 2433
+						System.out.println("Number of edges: " + UndirectedWGraph.getNbOfEdges()); //Number of edges: 2759
+						//UndirectedWGraph.printAdj();
 						
-						//DijkstraSP.findShortestPaths(UWGraph);
-						//DijkstraSP.printCountSP(UWGraph);
+						//DijkstraSP.dijkstra(UndirectedWGraph,6155);
+						//DijkstraSP.printShortestPath(6155,6104);
+						//DijkstraSP.findShortestPaths(UndirectedWGraph);
+						//DijkstraSP.printCountSP(UndirectedWGraph);
 						//DijkstraSP.printAllShortestPaths();
-						//DijkstraSP.printAllShortestPaths();
-	
-						/*System.out.println("\\nGraph Clustering");
-						Graph WGraphClustering = new Graph();
-						WGraphClustering.convertTxt(stopsFile, stopTimesFile, false, true);
-						GraphClustering.findClusters(WGraphClustering);
+
+						/*GraphClustering.findClusters(UndirectedWGraph);
 						for (Map.Entry<Integer, Cluster> cluster : GraphClustering.getClusters().entrySet()) {
 							System.out.print("Cluster " + cluster.getKey() + " : ");
 							for (int clusterUnit : cluster.getValue().getNodes()) {
@@ -111,7 +111,7 @@ public class Main {
 							}
 							System.out.println("\n" + GraphClustering.getClusters().size() + " clusters have been found");
 						}*/
-						
+						break;
 				case 0:
 					break;
 				default:
