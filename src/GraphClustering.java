@@ -13,7 +13,7 @@ public class GraphClustering {
 	}
 
 	public static void findClusters(Graph g) {
-		for (Integer key : g.getMap().keySet()) {
+		for (int key : g.getMap().keySet()) {
 			marked.put(key, false);
 		}
 		

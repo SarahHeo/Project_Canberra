@@ -11,12 +11,14 @@ public class Graph {
 
 	private Map<Integer, List<DirectedEdge>> map = new TreeMap<Integer,List<DirectedEdge>>();
 	private boolean weighted;
+	private boolean directed;
 	
 	// convert GTFS data into map for a graph
-	public void convertTxt(File stopsFile, File stopTimesFile, boolean weighted) throws FileNotFoundException {
+	public void convertTxt(File stopsFile, File stopTimesFile, boolean weighted, boolean directed) throws FileNotFoundException {
 		addNodesFromTxt(stopsFile);
 		addEdgesFromTxt(stopTimesFile);
 		this.weighted = weighted;
+		this.directed = directed;
 		if (weighted) {
 			addWeightsFromTxt(stopsFile);
 		}
@@ -66,28 +68,55 @@ public class Graph {
 			trip_id = arr[0];
 			stop_id = Integer.parseInt(arr[3]);
 			
-			// if we are still in the same trip, then the 2 stations are connected
-			if (trip_id.equals(trip_id0)) { 
-				if (!this.map.containsKey(stop_id0)) {
-					System.out.println("Node does not exist: " + stop_id0);
-				} else {
-					List<DirectedEdge> edgesList = this.map.get(stop_id0);
-					boolean exists = false;
-					for (int i = 0; i < edgesList.size(); i++) { // to avoid duplicates
-						if (edgesList.get(i).to() == stop_id) {
-							exists = true;
-							break;
+			if (directed){
+				// if we are still in the same trip, then the 2 stations are connected
+				if (trip_id.equals(trip_id0)) { 
+					if (!this.map.containsKey(stop_id0)) {
+						System.out.println("Node does not exist: " + stop_id0);
+					} else {
+						List<DirectedEdge> edgesList = this.map.get(stop_id0);
+						boolean exists = false;
+						for (int i = 0; i < edgesList.size(); i++) { // to avoid duplicates
+							if (edgesList.get(i).to() == stop_id) {
+								exists = true;
+								break;
+							}
+						}
+						if (!exists) {
+							DirectedEdge newEdge = new DirectedEdge(stop_id0, stop_id, 1);
+							edgesList.add(newEdge);
 						}
 					}
-					if (!exists) {
-						DirectedEdge newEdge = new DirectedEdge(stop_id0, stop_id, 1);
-						edgesList.add(newEdge);
+				}
+			} else if (!directed){
+				if (trip_id.equals(trip_id0)) { 
+					if (!this.map.containsKey(stop_id0)) {
+						System.out.println("Node does not exist: " + stop_id0);
+					} else if (!this.map.containsKey(stop_id)) {
+						System.out.println("Node does not exist: " + stop_id);
+					} else {	
+						List<DirectedEdge> edgesList0 = this.map.get(stop_id0);
+						List<DirectedEdge> edgesList = this.map.get(stop_id);
+						boolean exists = false;
+						for (int i = 0; i < edgesList0.size(); i++) { // to avoid duplicates
+							if (edgesList0.get(i).to() == stop_id) {
+								exists = true;
+								break;
+							}
+						}
+						if (!exists) {
+							DirectedEdge newEdge0 = new DirectedEdge(stop_id0, stop_id, 1);
+							DirectedEdge newEdge = new DirectedEdge(stop_id, stop_id0, 1);
+							edgesList.add(newEdge);
+							edgesList0.add(newEdge0);
+						}
 					}
 				}
 			}
 
 			trip_id0 = trip_id;
 			stop_id0 = stop_id;
+
 		}
 	}
 

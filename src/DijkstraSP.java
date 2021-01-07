@@ -24,7 +24,7 @@ public class DijkstraSP {
 	public static void dijkstra(Graph G, int startingNode) {
 		List<Integer> toVisitNodes = new ArrayList<Integer>();
 		toVisitNodes.add(startingNode);
-		previous.put(startingNode, startingNode);
+		previous.put(startingNode, -1);
 		distance.put(startingNode, 0.0);
 		
 		if (verifyNonNegative(G)) {
@@ -121,12 +121,16 @@ public class DijkstraSP {
 			} else {
 				String path = "";
 				int currentNode = destinationNode;
-					while (currentNode != startingNode) {
+					while (currentNode != startingNode && currentNode != -1) {
 						path = currentNode + " " + path;
 						currentNode = previous.get(currentNode);
 					}
 					path = startingNode + " " + path;
-				System.out.println("The path from " + startingNode + " to node " + destinationNode + " is " + path);
+				if (currentNode == -1){
+					System.out.println("There is not any path between " + startingNode + " and " + destinationNode);
+				} else {
+					System.out.println("The path from " + startingNode + " to node " + destinationNode + " is " + path);
+				}
 			}
 		} else {
 			System.out.println("There is not any path between " + startingNode + " and " + destinationNode);

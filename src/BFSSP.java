@@ -17,7 +17,7 @@ public class BFSSP {
 			marked.put(key, false);
 		}
 		toVisitNodes.add(s);
-		previous.put(s, s);
+		previous.put(s, -1);
 		distance.put(s, 0);
 		
 		if (G.isWeighted()) {
@@ -42,31 +42,7 @@ public class BFSSP {
 			}
 		}
 		return path;
-	}
-	/*
-	public static void findShortestPaths(Graph G) {
-		// Launch a bfs from every starting node
-		for (int startingNode : G.getMap().keySet()) {
-			marked.clear();
-			previous.clear();
-			distance.clear();
-			bfs(G, startingNode);
-			Map<Integer, List<Integer>> paths = new TreeMap<Integer, List<Integer>>();
-			// Find the shortest path for every reached node
-			for(Map.Entry<Integer, Integer> markedNode : previous.entrySet()) {
-				List<Integer> path = new ArrayList<Integer>();			
-				int currentNode = markedNode.getKey();
-				while (currentNode != startingNode) {
-					path.add(0,currentNode) ;
-					currentNode = previous.get(currentNode);
-				}
-				path.add(0,startingNode);
-				paths.put(markedNode.getKey(), path);
-			}
-			shortestPaths.put(startingNode, paths);
-		}
-	}*/
-	
+	}	
 	
 	public static void findShortestPaths(Graph G) {
 		// Launch a bfs from every starting node
@@ -125,17 +101,22 @@ public class BFSSP {
 			} else {
 				int currentNode = destinationNode;
 				
-				while (currentNode != startingNode) {
+				while (currentNode != startingNode && currentNode != -1) {
 					path.add(0,currentNode) ;
 					currentNode = previous.get(currentNode);
 				}
 				
 				path.add(0,startingNode);
-				System.out.print("The path from " + startingNode + " to node " + destinationNode + " is ");
-				for (int i : path) {
-					System.out.print(i + " ");
+				if (currentNode == -1){
+					System.out.println("There is not any path between " + startingNode + " and " + destinationNode);
+				} else {
+					System.out.print("The path from " + startingNode + " to node " + destinationNode + " is ");
+					for (int i : path) {
+						System.out.print(i + " ");
+					}
+					System.out.println();
 				}
-				System.out.println();
+				
 			}
 			
 		} else {
