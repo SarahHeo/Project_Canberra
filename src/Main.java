@@ -103,14 +103,11 @@ public class Main {
 						//DijkstraSP.printCountSP(UndirectedWGraph);
 						//DijkstraSP.printAllShortestPaths();
 
-						/*GraphClustering.findClusters(UndirectedWGraph);
-						for (Map.Entry<Integer, Cluster> cluster : GraphClustering.getClusters().entrySet()) {
-							System.out.print("Cluster " + cluster.getKey() + " : ");
-							for (int clusterUnit : cluster.getValue().getNodes()) {
-								System.out.print(clusterUnit + " ");
-							}
-							System.out.println("\n" + GraphClustering.getClusters().size() + " clusters have been found");
-						}*/
+						/*GraphClustering.findClusters(UndirectedWGraph); // 1
+						GraphClustering.printClusters();*/
+						
+						GraphClustering.createClusters(UndirectedWGraph, 2);
+
 						break;
 				case 0:
 					break;

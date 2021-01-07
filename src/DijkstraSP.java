@@ -76,27 +76,33 @@ public class DijkstraSP {
 	}
 	
 	public static void findShortestPaths(Graph G) {
+		System.out.println("...Searching for all shortest paths...");
 		// Launch Dijkstra from every starting node
+		Map<Integer, String> paths;
+		int currentNode;
+		int previousNode;
+		
 		for (int startingNode : G.getMap().keySet()) {
 			marked.clear();
 			previous.clear();
 			distance.clear();
 			dijkstra(G, startingNode);
-			Map<Integer, String> paths = new TreeMap<Integer, String>();
+			paths = new TreeMap<Integer, String>();
 			// Find the shortest path for every reached node
 			for(Map.Entry<Integer, Integer> markedNode : previous.entrySet()) {
 				// Checks if there are multiple previous node, if there are, multiple equivalent SP exist
 				String path = "";
-				int currentNode = markedNode.getKey();
+				currentNode = markedNode.getKey();
 				while (currentNode != startingNode) {
 					path = currentNode + " " + path;
 					// We add the "score" to the edge
-					for(DirectedEdge edge : G.getMap().get(previous.get(currentNode))) {
+					previousNode = previous.get(currentNode);
+					for(DirectedEdge edge : G.getMap().get(previousNode)) {
 						if (edge.to() == currentNode) {
 							edge.addToCountSP(1);
 						}
 					}
-					currentNode = previous.get(currentNode);
+					currentNode = previousNode;
 				}
 				path = startingNode + " " + path;
 				paths.put(markedNode.getKey(), path);

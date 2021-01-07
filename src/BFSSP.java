@@ -20,11 +20,11 @@ public class BFSSP {
 		previous.put(s, -1);
 		distance.put(s, 0);
 		
-		if (G.isWeighted()) {
+		//if (G.isWeighted()) {
 			
-			System.out.println("BFS cannot be used on weighted graph, please consider using Dijkstra Algorithm instead.");
+		//	System.out.println("BFS cannot be used on weighted graph, please consider using Dijkstra Algorithm instead.");
 			
-		} else {
+		//} else {
 			
 			while (!toVisitNodes.isEmpty()) {
 
@@ -40,7 +40,7 @@ public class BFSSP {
 					}
 				}
 			}
-		}
+		//}
 		return path;
 	}	
 	

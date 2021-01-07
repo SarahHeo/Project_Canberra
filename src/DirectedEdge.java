@@ -3,7 +3,7 @@ public class DirectedEdge {
 	private int source;
 	private int destination;
 	private double weight;
-	private double countSP;
+	private int countSP;
 	
 	public DirectedEdge(int source, int destination, double weight) {
 		this.source = source;
@@ -23,7 +23,7 @@ public class DirectedEdge {
 	public void setWeight(double weight) {
 		this.weight = weight;
 	}
-	public double getCountSP() {
+	public int getCountSP() {
 		return this.countSP;
 	}
 	public void addToCountSP(double score){

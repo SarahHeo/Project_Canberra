@@ -14,6 +14,7 @@ public class GraphClustering {
 	}
 
 	public static void findClusters(Graph g) {
+		System.out.println("...Searching for clusters...");
 		for (int key : g.getMap().keySet()) {
 			marked.put(key, false);
 		}
@@ -68,14 +69,16 @@ public class GraphClustering {
 			findClusters(G);
 		}
 		
+		printClusters();
+	}
+	
+	public static void printClusters() {
 		for (Map.Entry<Integer, Cluster> cluster : GraphClustering.getClusters().entrySet()) {
 			System.out.print("Cluster " + cluster.getKey() + " : ");
 			for (int clusterUnit : cluster.getValue().getNodes()) {
 				System.out.print(clusterUnit + " ");
 			}
 		}
-		System.out.println("\n" + GraphClustering.getClusters().size() + " clusters have been found");
+		System.out.println("\n" + GraphClustering.getClusters().size() + " cluster(s) have been found");
 	}
-	
-	
 }
