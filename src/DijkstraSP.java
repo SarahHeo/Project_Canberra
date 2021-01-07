@@ -1,3 +1,4 @@
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -21,18 +22,19 @@ public class DijkstraSP {
 		return distance;
 	}
 	
-	public static void dijkstra(Graph G, int startingNode) {
+	public static List<Integer> dijkstra(Graph G, int startingNode) {
 		List<Integer> toVisitNodes = new ArrayList<Integer>();
+		List<Integer> path = new ArrayList<Integer>();
 		toVisitNodes.add(startingNode);
 		previous.put(startingNode, -1);
 		distance.put(startingNode, 0.0);
 		
 		if (verifyNonNegative(G)) {
 			for (Integer key : G.getMap().keySet()) {
-				if (key != startingNode) {
-					marked.put(key, false);
+				marked.put(key, false);
+				if (key != startingNode){
 					distance.put(key, Double.POSITIVE_INFINITY); // 999999999 is supposed to be infinity
-				}	
+				}
 			}
 			
 			while (!toVisitNodes.isEmpty()) {  // If there is not any node left to visit, we stop the loop
@@ -45,10 +47,12 @@ public class DijkstraSP {
 						currentNode = toVisitNodes.get(i);
 					}
 					// We select our next node and remove it from toVisitNodes
-					toVisitNodes.remove((Integer)currentNode);
+					
 				}
 				// We set our node as marked after it is selected and removed from toVisitNodes
-				marked.put(currentNode, true);
+				toVisitNodes.remove((Integer)currentNode);
+				marked.replace(currentNode, true);
+				path.add(currentNode);
 				
 				for (DirectedEdge edge : G.getMap().get(currentNode)) {
 					// We update the distance of the neighbors nodes
@@ -59,7 +63,7 @@ public class DijkstraSP {
 						
 					}
 					// We take care not to select again a marked node
-					if (!marked.get(edge.to())) {
+					if (!marked.get(edge.to()) && !toVisitNodes.contains(edge.to())) {
 						toVisitNodes.add(edge.to());
 					}
 				}
@@ -68,6 +72,7 @@ public class DijkstraSP {
 		} else {
 			System.out.println("Dijkstra algorithm cannot be used as there is a negative weight in the graph!");
 		}
+		return path;
 	}
 	
 	public static void findShortestPaths(Graph G) {
@@ -154,8 +159,8 @@ public class DijkstraSP {
 	}
 	
 	public static void printCountSP(Graph G) throws Exception {
-		/*PrintStream fileOut = new PrintStream("./out.txt");
-		System.setOut(fileOut);*/
+		PrintStream fileOut = new PrintStream("./out.txt");
+		System.setOut(fileOut);
 		for (Map.Entry<Integer, List<DirectedEdge>> entry : G.getMap().entrySet()) {
 			for (DirectedEdge edge : entry.getValue()) {
 				System.out.println("(" + edge.from() + ", " + edge.to() + ", " + edge.getCountSP() + ")");
@@ -185,4 +190,5 @@ public class DijkstraSP {
 			System.out.println(entry.getKey() + " : " + entry.getValue());
 		}
 	}
+	
 }
