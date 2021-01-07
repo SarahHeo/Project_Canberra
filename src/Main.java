@@ -2,7 +2,6 @@ import java.io.File;
 import java.util.Map;
 import java.util.Scanner;
 
-// import Unweigted_graphs.BFSShortestPaths;
 
 public class Main {
 
@@ -28,9 +27,9 @@ public class Main {
 			
 			+ "-------- Part 3 --------" + "\n"
 			+ "5- Find shortest path on unweighted graph (BFS)" + "\n"
-			+ "6- Display all shortest paths on unweighted graph (BFS) [/!\\ takes lots of ressources]" + "\n"
+			+ "6- Display all shortest paths on unweighted graph (BFS) [/!\\ takes lots of resources]" + "\n"
 			+ "7- Find shortest path on weighted graph (Dijkstra)" + "\n"
-			+ "8- Display all shortest paths on weighted graph (Dijkstra) [/!\\ takes lots of ressources]" + "\n"
+			+ "8- Display all shortest paths on weighted graph (Dijkstra) [/!\\ takes lots of resources]" + "\n"
 			
 			+ "-------- Part 4 --------" + "\n"
 			+ "9-" + "\n"
