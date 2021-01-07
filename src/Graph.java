@@ -15,10 +15,10 @@ public class Graph {
 	
 	// convert GTFS data into map for a graph
 	public void convertTxt(File stopsFile, File stopTimesFile, boolean weighted, boolean directed) throws FileNotFoundException {
-		addNodesFromTxt(stopsFile);
-		addEdgesFromTxt(stopTimesFile);
 		this.weighted = weighted;
 		this.directed = directed;
+		addNodesFromTxt(stopsFile);
+		addEdgesFromTxt(stopTimesFile);
 		if (weighted) {
 			addWeightsFromTxt(stopsFile);
 		}
