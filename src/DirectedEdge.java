@@ -35,7 +35,7 @@ public class DirectedEdge {
 		
 		String str;
 		if (this.weight == 1) {
-			str = this.source + "";
+			str = this.destination + "";
 		} else {
 			str = this.source + "/" + this.destination + "/" + this.weight;
 		}

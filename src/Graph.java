@@ -118,6 +118,16 @@ public class Graph {
 			stop_id0 = stop_id;
 
 		}
+		
+		/*DirectedEdge newEdge = new DirectedEdge(6155, 6092, 1);
+		this.map.get(6155).add(newEdge);
+		newEdge = new DirectedEdge(6092, 6104, 1);
+		this.map.get(6092).add(newEdge);
+		
+		newEdge = new DirectedEdge(6155, 4919, 1);
+		this.map.get(6155).add(newEdge);
+		newEdge = new DirectedEdge(4919, 6104, 1);
+		this.map.get(4919).add(newEdge);*/
 	}
 
 	private void addWeightsFromTxt(File stopsFile) throws FileNotFoundException {
@@ -172,18 +182,8 @@ public class Graph {
 	}
 
 	public void printAdj() {
-		if (!weighted) {
-			for (Map.Entry<Integer,List<DirectedEdge>> entry : this.map.entrySet()) {
-				System.out.print(entry.getKey() + ": [" );
-				for (DirectedEdge edge : entry.getValue()) {
-					System.out.print(edge.to() + ", ");
-				}
-				System.out.println("]");
-			}
-		} else {
-			for (Map.Entry<Integer,List<DirectedEdge>> entry : this.map.entrySet()) {
-				System.out.println(entry.getKey() + ": " + entry.getValue());
-			}
+		for (Map.Entry<Integer,List<DirectedEdge>> entry : this.map.entrySet()) {
+			System.out.println(entry.getKey() + ": " + entry.getValue());
 		}
 	}
 
