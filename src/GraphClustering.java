@@ -34,14 +34,24 @@ public class GraphClustering {
 	}
 	
 	public static void createClusters(Graph G, int n) throws Exception	{
+		
+		int startingNode;
+		int destinationNode;
+		int edge_betweenness;
+		
 		DijkstraSP.findShortestPaths(G);
 		findClusters(G);
-		DijkstraSP.printCountSP(G);
+		//DijkstraSP.printCountSP(G);
+		printClusters();
+		
 		while (clusters.size() < n){
-			int startingNode = -1;
-			int destinationNode = -1;
-			int edge_betweenness = 0;
-			DijkstraSP.findShortestPaths(G);
+			
+			startingNode = -1;
+			destinationNode = -1;
+			edge_betweenness = 0;
+			
+			System.out.println("\n...Calculating edge betweenness...");
+			// Find the highest edge_betweenness
 			for (Map.Entry<Integer, List<DirectedEdge>> entry : G.getMap().entrySet()){
 				for (DirectedEdge edge : entry.getValue()){
 					if (edge.getCountSP() > edge_betweenness){
@@ -51,8 +61,9 @@ public class GraphClustering {
 					}
 				}
 			}
+			
 			System.out.println("Edge (" + startingNode + ";" + destinationNode + ") with " + edge_betweenness + " SP going through will be removed");
-
+			// Remove the edge
 			for(Iterator<DirectedEdge> iterator = G.getMap().get(startingNode).iterator(); iterator.hasNext(); ) {
 				DirectedEdge edge = iterator.next();
 				if (edge.to() == destinationNode){
@@ -66,7 +77,10 @@ public class GraphClustering {
 					iterator.remove();
 				}
 			}
+			
+			DijkstraSP.findShortestPaths(G);
 			findClusters(G);
+			printClusters();
 		}
 		
 		printClusters();
@@ -76,9 +90,10 @@ public class GraphClustering {
 		for (Map.Entry<Integer, Cluster> cluster : GraphClustering.getClusters().entrySet()) {
 			System.out.print("Cluster " + cluster.getKey() + " : ");
 			for (int clusterUnit : cluster.getValue().getNodes()) {
-				System.out.print(clusterUnit + " ");
+				System.out.print(clusterUnit + 1 + " ");
 			}
 		}
 		System.out.println("\n" + GraphClustering.getClusters().size() + " cluster(s) have been found");
 	}
+	
 }

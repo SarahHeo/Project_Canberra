@@ -1,8 +1,11 @@
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class DijkstraSP {
 	private static Map<Integer, Boolean> marked = new TreeMap<Integer, Boolean>();
@@ -78,9 +81,19 @@ public class DijkstraSP {
 	public static void findShortestPaths(Graph G) {
 		System.out.println("...Searching for all shortest paths...");
 		// Launch Dijkstra from every starting node
+		
 		Map<Integer, String> paths;
-		int currentNode;
 		int previousNode;
+		int currentNode;
+		String path;
+		String backwardPath;
+		Map<Integer, String> pathList;
+		
+		// Intitialize unvisited
+		TreeSet<Integer> unvisited = new TreeSet<Integer>();
+		for (Map.Entry<Integer,List<DirectedEdge>> entry : G.getMap().entrySet()) {
+			unvisited.add(entry.getKey());
+		}
 		
 		for (int startingNode : G.getMap().keySet()) {
 			marked.clear();
@@ -89,25 +102,40 @@ public class DijkstraSP {
 			dijkstra(G, startingNode);
 			paths = new TreeMap<Integer, String>();
 			// Find the shortest path for every reached node
-			for(Map.Entry<Integer, Integer> markedNode : previous.entrySet()) {
-				// Checks if there are multiple previous node, if there are, multiple equivalent SP exist
-				String path = "";
-				currentNode = markedNode.getKey();
-				while (currentNode != startingNode) {
-					path = currentNode + " " + path;
-					// We add the "score" to the edge
-					previousNode = previous.get(currentNode);
-					for(DirectedEdge edge : G.getMap().get(previousNode)) {
-						if (edge.to() == currentNode) {
-							edge.addToCountSP(1);
-						}
+			for(int currentDestinationNode : unvisited) {
+				path = "";
+				backwardPath = "";
+				currentNode = currentDestinationNode;
+				// Find shortest path, by looking for previous nodes
+				while (currentNode != startingNode) { // while path not complete
+					path = currentNode + " " + path; // for source -> destination path
+					backwardPath = backwardPath + " " + currentNode; // for destination -> source path
+					/**************************/
+					if (previous.get(currentNode) == null) {
+						int bug = 3419; // Bug : 3419 pas dans previous (à la 4 ou 5ème itération...)
 					}
+					/****************************/
+					previousNode = previous.get(currentNode);
+					// Find the edge between previous and currentNode
+					DirectedEdge edge = G.findEdge(previousNode, currentNode);
+					edge.addToCountSP(1); // We add the "score" to the edge
 					currentNode = previousNode;
 				}
 				path = startingNode + " " + path;
-				paths.put(markedNode.getKey(), path);
+				backwardPath = backwardPath + " " + startingNode;
+				
+				pathList = shortestPaths.get(currentDestinationNode);
+				if (pathList == null)
+					pathList = new HashMap<Integer, String>();
+				pathList.put(startingNode, backwardPath);
+				
+				if (currentDestinationNode != startingNode)
+					shortestPaths.put(currentDestinationNode, pathList);
+				
+				paths.put(currentDestinationNode, path);
 			}
 			shortestPaths.put(startingNode, paths);
+			unvisited.remove(startingNode);
 		}
 	}
 	
@@ -165,8 +193,8 @@ public class DijkstraSP {
 	}
 	
 	public static void printCountSP(Graph G) throws Exception {
-		PrintStream fileOut = new PrintStream("./out.txt");
-		System.setOut(fileOut);
+		//PrintStream fileOut = new PrintStream("./out.txt");
+		//System.setOut(fileOut);
 		for (Map.Entry<Integer, List<DirectedEdge>> entry : G.getMap().entrySet()) {
 			for (DirectedEdge edge : entry.getValue()) {
 				System.out.println("(" + edge.from() + ", " + edge.to() + ", " + edge.getCountSP() + ")");

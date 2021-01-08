@@ -29,6 +29,7 @@ public class DirectedEdge {
 	public void addToCountSP(double score){
 		this.countSP += score;
 	}
+
 	
 	@Override
 	public String toString() {

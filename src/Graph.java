@@ -199,6 +199,15 @@ public class Graph {
 		return number;
 	}
 
+	public DirectedEdge findEdge(int source, int destination) {
+		for(DirectedEdge edge : this.getMap().get(source)) {
+			if (edge.to() == destination) {
+				return edge;
+			}
+		}
+		return null;
+	}
+	
 	public Map<Integer,List<DirectedEdge>> getMap(){
 		return this.map;
 	}
