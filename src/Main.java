@@ -1,4 +1,6 @@
 import java.io.File;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -11,6 +13,10 @@ public class Main {
 		int answer;
 		int answer2;
 		Scanner scanner = new Scanner(System.in);
+		Instant start;
+		Instant end;
+		long durationMinutes;
+		long durationSeconds;
 		
 		File stopTimesFile = new File("data\\stop_times.txt");
 		File stopsFile = new File("data\\stops.txt");
@@ -97,17 +103,17 @@ public class Main {
 						System.out.println("Number of edges: " + UndirectedWGraph.getNbOfEdges()); //Number of edges: 2759
 						//UndirectedWGraph.printAdj();
 						
-						//DijkstraSP.dijkstra(UndirectedWGraph,6155);
-						//DijkstraSP.printShortestPath(6155,6104);
-						//DijkstraSP.findShortestPaths(UndirectedWGraph);
-						//DijkstraSP.printCountSP(UndirectedWGraph);
-						//DijkstraSP.printAllShortestPaths();
-
-						/*GraphClustering.findClusters(UndirectedWGraph); // 1
-						GraphClustering.printClusters();*/
+						System.out.print("Number of clusters: ");
+						answer = Integer.parseInt(scanner.nextLine());
 						
-						GraphClustering.createClusters(UndirectedWGraph, 2);
-
+						start = Instant.now();
+						GraphClustering.createClusters(UndirectedWGraph, answer);
+						end = Instant.now();
+						
+						durationMinutes = Duration.between(start, end).toMinutesPart();
+						durationSeconds = Duration.between(start, end).toSecondsPart();
+						System.out.println("Execution time : "+durationMinutes+" min " + durationSeconds + " s\n");
+					
 						break;
 				case 0:
 					break;

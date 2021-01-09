@@ -34,14 +34,19 @@ public class GraphClustering {
 	}
 	
 	public static void createClusters(Graph G, int n) throws Exception	{
-		
+		System.out.println("");
 		int startingNode;
 		int destinationNode;
 		int edge_betweenness;
 		
+		//G.removeEdge(8889,3356);
+		//G.removeEdge(8888,3003);
+		//G.removeEdge(3356,3419);
+		//G.removeEdge(3419,4530);
+		
+		G.resetAllCountSP();
 		DijkstraSP.findShortestPaths(G);
 		findClusters(G);
-		//DijkstraSP.printCountSP(G);
 		printClusters();
 		
 		while (clusters.size() < n){
@@ -64,34 +69,26 @@ public class GraphClustering {
 			
 			System.out.println("Edge (" + startingNode + ";" + destinationNode + ") with " + edge_betweenness + " SP going through will be removed");
 			// Remove the edge
-			for(Iterator<DirectedEdge> iterator = G.getMap().get(startingNode).iterator(); iterator.hasNext(); ) {
-				DirectedEdge edge = iterator.next();
-				if (edge.to() == destinationNode){
-					iterator.remove();
-				}
-			}
+			G.removeEdge(startingNode, destinationNode);
 			
-			for(Iterator<DirectedEdge> iterator = G.getMap().get(destinationNode).iterator(); iterator.hasNext(); ) {
-				DirectedEdge edge = iterator.next();
-				if (edge.to() == startingNode){
-					iterator.remove();
-				}
-			}
-			
+			G.resetAllCountSP();
 			DijkstraSP.findShortestPaths(G);
 			findClusters(G);
 			printClusters();
 		}
-		
-		printClusters();
 	}
 	
 	public static void printClusters() {
+		int nb;
+		int nbOfNodes;
 		for (Map.Entry<Integer, Cluster> cluster : GraphClustering.getClusters().entrySet()) {
-			System.out.print("Cluster " + cluster.getKey() + " : ");
+			nb = cluster.getKey() + 1;
+			nbOfNodes = cluster.getValue().getNodes().size();
+			System.out.print("Cluster " + nb + " (" + nbOfNodes + " stations): ");
 			for (int clusterUnit : cluster.getValue().getNodes()) {
-				System.out.print(clusterUnit + 1 + " ");
+				System.out.print(clusterUnit + " ");
 			}
+			System.out.print("\n");
 		}
 		System.out.println("\n" + GraphClustering.getClusters().size() + " cluster(s) have been found");
 	}

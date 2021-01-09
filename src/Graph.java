@@ -208,6 +208,34 @@ public class Graph {
 		return null;
 	}
 	
+	public void removeEdge(int source, int destination) {
+		List<DirectedEdge> listOfEdges = this.getMap().get(source);
+		for(DirectedEdge edge : listOfEdges) {
+			if (edge.to() == destination) {
+				listOfEdges.remove(edge);
+				break;
+			}
+		}
+		if (!this.directed) {
+			listOfEdges = this.getMap().get(destination);
+			for(DirectedEdge edge : listOfEdges) {
+				if (edge.to() == source) {
+					listOfEdges.remove(edge);
+					break;
+				}
+			}
+		}
+		
+	}
+	
+	public void resetAllCountSP() {
+		for (Map.Entry<Integer,List<DirectedEdge>> entry : this.getMap().entrySet()) {
+			for(DirectedEdge edge : entry.getValue()) {
+				edge.resetCountSP();
+			}
+		}
+	}
+	
 	public Map<Integer,List<DirectedEdge>> getMap(){
 		return this.map;
 	}
