@@ -23,10 +23,10 @@ public class GraphClustering {
 		for (int node : g.getMap().keySet()) {
 			if (marked.get(node) == false) {
 				Cluster cluster = new Cluster();
-				List<Integer> bfsOutput = BFSSP.bfs(g, node); // bfs will go through each connected component
-				for (int bfsNode : bfsOutput) {
-					cluster.addNode(bfsNode);
-					marked.put(bfsNode, true);
+				List<Integer> dijkstraOutput = DijkstraSP.dijkstra(g, node); // dijkstra will go through each connected component
+				for (int dijkstraNode : dijkstraOutput) {
+					cluster.addNode(dijkstraNode);
+					marked.put(dijkstraNode, true);
 				}
 				clusters.put(i++,  cluster);
 			}
@@ -34,7 +34,7 @@ public class GraphClustering {
 	}
 	
 	public static void createClusters(Graph G, int n) throws Exception	{
-		System.out.println("");
+		System.out.println();
 		int startingNode;
 		int destinationNode;
 		int edge_betweenness;
@@ -44,18 +44,16 @@ public class GraphClustering {
 		//G.removeEdge(3356,3419);
 		//G.removeEdge(3419,4530);
 		
-		G.resetAllCountSP();
-		DijkstraSP.findShortestPaths(G);
-		findClusters(G);
-		printClusters();
-		
 		while (clusters.size() < n){
+			
+			G.resetAllCountSP();
+			DijkstraSP.updateCountSP(G);
+			findClusters(G);
 			
 			startingNode = -1;
 			destinationNode = -1;
 			edge_betweenness = 0;
 			
-			System.out.println("\n...Calculating edge betweenness...");
 			// Find the highest edge_betweenness
 			for (Map.Entry<Integer, List<DirectedEdge>> entry : G.getMap().entrySet()){
 				for (DirectedEdge edge : entry.getValue()){
@@ -71,9 +69,6 @@ public class GraphClustering {
 			// Remove the edge
 			G.removeEdge(startingNode, destinationNode);
 			
-			G.resetAllCountSP();
-			DijkstraSP.findShortestPaths(G);
-			findClusters(G);
 			printClusters();
 		}
 	}
@@ -90,7 +85,7 @@ public class GraphClustering {
 			}
 			System.out.print("\n");
 		}
-		System.out.println("\n" + GraphClustering.getClusters().size() + " cluster(s) have been found");
+		System.out.println(GraphClustering.getClusters().size() + " cluster(s) have been found \n");
 	}
 	
 }

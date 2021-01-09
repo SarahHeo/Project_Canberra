@@ -2,8 +2,9 @@ public class DirectedEdge {
 
 	private int source;
 	private int destination;
-	private double weight;
 	private int countSP;
+	private double weight;
+	
 	
 	public DirectedEdge(int source, int destination, double weight) {
 		this.source = source;

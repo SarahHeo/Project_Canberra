@@ -78,8 +78,7 @@ public class Main {
 						break;
 					case 6:
 						//The following lines are taking a lot of time and resources to process, be careful when testing
-						BFSSP.findShortestPaths(UWGraph);
-						BFSSP.printAllShortestPaths();
+						BFSSP.printAllShortestPaths(UWGraph);
 						break;
 					case 7:
 						System.out.print("Find path from: ");
@@ -91,8 +90,7 @@ public class Main {
 						break;
 					case 8:
 						//The following lines are taking a lot of time and resources to process, be careful when testing
-						DijkstraSP.findShortestPaths(WGraph);
-						DijkstraSP.printAllShortestPaths();
+						DijkstraSP.printAllShortestPaths(WGraph);
 						break;
 						
 					/******* Part 4 *******/	

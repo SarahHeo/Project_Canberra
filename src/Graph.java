@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -196,7 +197,12 @@ public class Graph {
 		for (Map.Entry<Integer,List<DirectedEdge>> entry : this.map.entrySet()) {
 			number += entry.getValue().size();
 		}
-		return number;
+		if (directed) {
+			return number;
+		} else {
+			return number/2;
+		}
+		
 	}
 
 	public DirectedEdge findEdge(int source, int destination) {
@@ -226,6 +232,16 @@ public class Graph {
 			}
 		}
 		
+	}
+	
+	public void printCountSP() throws Exception {
+		/*PrintStream fileOut = new PrintStream("./out.txt");
+		System.setOut(fileOut);*/
+		for (Map.Entry<Integer, List<DirectedEdge>> entry : this.getMap().entrySet()) {
+			for (DirectedEdge edge : entry.getValue()) {
+				System.out.println("(" + edge.from() + ", " + edge.to() + ", " + edge.getCountSP() + ")");
+			}
+		}
 	}
 	
 	public void resetAllCountSP() {

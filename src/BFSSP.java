@@ -4,39 +4,35 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class BFSSP {
-	private static Map<Integer, Boolean> marked = new TreeMap<Integer, Boolean>();
-	private static Map<Integer, Integer> previous = new TreeMap<Integer, Integer>();
-	private static Map<Integer, Integer> distance = new TreeMap<Integer, Integer>();
-	//private static Map<Integer, Map<Integer, List<Integer>>> shortestPaths2 = new TreeMap<Integer, Map<Integer, List<Integer>>>();
+	private static Map<Integer, MPD> mapMPD = new TreeMap<Integer, MPD>();
 	private static Map<Integer, Map<Integer, String>> shortestPaths = new TreeMap<Integer, Map<Integer, String>>();
 	
-	public static List<Integer> bfs(Graph G, int s) {
+	public static List<Integer> bfs(Graph G, int startingNode) {
 		List<Integer> path = new ArrayList<Integer>();
 		List<Integer> toVisitNodes = new ArrayList<Integer>();
 		for (Integer key : G.getMap().keySet()) {
-			marked.put(key, false);
+			mapMPD.put(key, new MPD(false, -1, 0.0));
 		}
-		toVisitNodes.add(s);
-		previous.put(s, -1);
-		distance.put(s, 0);
+		toVisitNodes.add(startingNode);
+		mapMPD.put(startingNode, new MPD(false, -1, 0.0));
 		
-		//if (G.isWeighted()) {
+		if (G.isWeighted()) {
 			
-		//	System.out.println("BFS cannot be used on weighted graph, please consider using Dijkstra Algorithm instead.");
+			System.out.println("Please consider using Dijkstra Algorithm on weighted graph if you would like to find shortest paths.");
 			
-		//} else {
+		}
 			
 			while (!toVisitNodes.isEmpty()) {
 
 				int currentNode = toVisitNodes.remove(0);
-				marked.replace(currentNode, true);
+				mapMPD.get(currentNode).marked = true;
 				path.add(currentNode);
 				
 				for (DirectedEdge edge : G.getMap().get(currentNode)) {
-					if (!toVisitNodes.contains(edge.to()) && !marked.get(edge.to())) {
+					if (!toVisitNodes.contains(edge.to()) && !mapMPD.get(edge.to()).marked) {
 						toVisitNodes.add(edge.to());
-						previous.put(edge.to(), currentNode);
-						distance.put(edge.to(), distance.get(currentNode)+1);					
+						mapMPD.get(edge.to()).previous = currentNode;
+						mapMPD.get(edge.to()).distance = mapMPD.get(currentNode).distance+1;					
 					}
 				}
 			}
@@ -44,51 +40,17 @@ public class BFSSP {
 		return path;
 	}	
 	
-	public static void findShortestPaths(Graph G) {
-		// Launch a bfs from every starting node
+	public static void printAllShortestPaths(Graph G) throws Exception{
+		// Uncomment the following lines to write the output in a textfile	
+		/*PrintStream fileOut = new PrintStream("./out.txt");
+		System.setOut(fileOut);*/
 		for (int startingNode : G.getMap().keySet()) {
-			marked.clear();
-			previous.clear();
-			distance.clear();
 			bfs(G, startingNode);
-			Map<Integer, String> paths = new TreeMap<Integer, String>();
-			// Find the shortest path for every reached node
-			for(Map.Entry<Integer, Integer> markedNode : previous.entrySet()) {
-				String path = "";			
-				int currentNode = markedNode.getKey();
-				while (currentNode != startingNode) {
-					path = currentNode + " " + path;
-					currentNode = previous.get(currentNode);
-				}
-				path = startingNode + " " + path;
-				paths.put(markedNode.getKey(), path);
-			}
-			shortestPaths.put(startingNode, paths);
-		}
-	}
-	
-	
-	
-	public static void printAllShortestPaths() {
-		for (Map.Entry<Integer, Map<Integer, String>> paths : shortestPaths.entrySet()) {
-			for(Map.Entry<Integer, String> path : paths.getValue().entrySet()) {
-				System.out.println("Shortest path from " + paths.getKey() + " to " + path.getKey() + " is " + path.getValue());
+			for (int destinationNode : G.getMap().keySet()) {
+				printShortestPath(startingNode, destinationNode);
 			}
 		}
 	}
-	
-	/*
-	public static void printAllShortestPaths() {
-		for (Map.Entry<Integer, Map<Integer, List<Integer>>> paths : shortestPaths.entrySet()) {
-			for(Map.Entry<Integer, List<Integer>> path : paths.getValue().entrySet()) {
-				System.out.println("Shortest path from " + paths.getKey() + " to " + path.getKey() + " is ");
-				for (int i : path.getValue()) {
-					System.out.print(i + " ");
-				}
-			}
-		}
-	}
-	*/
 	
 	public static void printShortestPath(int startingNode, int destinationNode) {
 		List<Integer> path = new ArrayList<Integer>();
@@ -103,7 +65,7 @@ public class BFSSP {
 				
 				while (currentNode != startingNode && currentNode != -1) {
 					path.add(0,currentNode) ;
-					currentNode = previous.get(currentNode);
+					currentNode = mapMPD.get(currentNode).previous;
 				}
 				
 				path.add(0,startingNode);
@@ -125,27 +87,29 @@ public class BFSSP {
 	}
 	
 	public static boolean hasPathTo(int destination) {
-		return marked.get(destination);
+		return mapMPD.get(destination).marked;
 	}
 	
 	public static void printMarked() {
 		System.out.println("Existing paths between starting node and: ");
-		for (Map.Entry<Integer, Boolean> entry : marked.entrySet()) {
-			System.out.println(entry.getKey() + " : " + entry.getValue());
+		for (Map.Entry<Integer, MPD> entry : mapMPD.entrySet()) {
+			System.out.println(entry.getKey() + " : " + entry.getValue().marked);
 		}
 	}
+	
 	
 	public static void printPrevious() {
 		System.out.println("Previous node of: ");
-		for (Map.Entry<Integer, Integer> entry : previous.entrySet()) {
-			System.out.println(entry.getKey() + " : " + entry.getValue());
+		for (Map.Entry<Integer, MPD> entry : mapMPD.entrySet()) {
+			System.out.println(entry.getKey() + " : " + entry.getValue().previous);
 		}
 	}
 	
+	
 	public static void printDistance() {
 		System.out.println("Distance between starting node and: ");
-		for (Map.Entry<Integer, Integer> entry : distance.entrySet()) {
-			System.out.println(entry.getKey() + " : " + entry.getValue());
+		for (Map.Entry<Integer, MPD> entry : mapMPD.entrySet()) {
+			System.out.println(entry.getKey() + " : " + entry.getValue().distance);
 		}
 	}
 }
