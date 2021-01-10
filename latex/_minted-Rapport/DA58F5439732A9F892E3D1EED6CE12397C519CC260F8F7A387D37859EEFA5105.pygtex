@@ -1,0 +1,49 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{o}{[}\PYG{p}{...}\PYG{o}{]}
+\PYG{k}{if} \PYG{p}{(}\PYG{n}{directed}\PYG{p}{)\PYGZob{}}
+	\PYG{c+c1}{// if we are still in the same trip, then the 2 stations are connected}
+	\PYG{k}{if} \PYG{p}{(}\PYG{n}{trip\PYGZus{}id}\PYG{p}{.}\PYG{n+na}{equals}\PYG{p}{(}\PYG{n}{trip\PYGZus{}id0}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+		\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{map}\PYG{p}{.}\PYG{n+na}{containsKey}\PYG{p}{(}\PYG{n}{stop\PYGZus{}id0}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+			\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Node does not exist: \PYGZdq{}} \PYG{o}{+} \PYG{n}{stop\PYGZus{}id0}\PYG{p}{);}
+		\PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+			\PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{DirectedEdge}\PYG{o}{\PYGZgt{}} \PYG{n}{edgesList} \PYG{o}{=} \PYG{k}{this}\PYG{p}{.}\PYG{n+na}{map}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{n}{stop\PYGZus{}id0}\PYG{p}{);}
+			\PYG{k+kt}{boolean} \PYG{n}{exists} \PYG{o}{=} \PYG{k+kc}{false}\PYG{p}{;}
+			\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{edgesList}\PYG{p}{.}\PYG{n+na}{size}\PYG{p}{();} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// to avoid duplicates}
+				\PYG{k}{if} \PYG{p}{(}\PYG{n}{edgesList}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{n}{i}\PYG{p}{).}\PYG{n+na}{to}\PYG{p}{()} \PYG{o}{==} \PYG{n}{stop\PYGZus{}id}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+					\PYG{n}{exists} \PYG{o}{=} \PYG{k+kc}{true}\PYG{p}{;}
+					\PYG{k}{break}\PYG{p}{;}
+				\PYG{p}{\PYGZcb{}}
+			\PYG{p}{\PYGZcb{}}
+			\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{exists}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+				\PYG{n}{DirectedEdge} \PYG{n}{newEdge} \PYG{o}{=} \PYG{k}{new} \PYG{n}{DirectedEdge}\PYG{p}{(}\PYG{n}{stop\PYGZus{}id0}\PYG{p}{,} \PYG{n}{stop\PYGZus{}id}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+				\PYG{n}{edgesList}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{n}{newEdge}\PYG{p}{);}
+			\PYG{p}{\PYGZcb{}}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{directed}\PYG{p}{)\PYGZob{}}
+	\PYG{k}{if} \PYG{p}{(}\PYG{n}{trip\PYGZus{}id}\PYG{p}{.}\PYG{n+na}{equals}\PYG{p}{(}\PYG{n}{trip\PYGZus{}id0}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+		\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{map}\PYG{p}{.}\PYG{n+na}{containsKey}\PYG{p}{(}\PYG{n}{stop\PYGZus{}id0}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+			\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Node does not exist: \PYGZdq{}} \PYG{o}{+} \PYG{n}{stop\PYGZus{}id0}\PYG{p}{);}
+		\PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{map}\PYG{p}{.}\PYG{n+na}{containsKey}\PYG{p}{(}\PYG{n}{stop\PYGZus{}id}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+			\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Node does not exist: \PYGZdq{}} \PYG{o}{+} \PYG{n}{stop\PYGZus{}id}\PYG{p}{);}
+		\PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}	
+			\PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{DirectedEdge}\PYG{o}{\PYGZgt{}} \PYG{n}{edgesList0} \PYG{o}{=} \PYG{k}{this}\PYG{p}{.}\PYG{n+na}{map}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{n}{stop\PYGZus{}id0}\PYG{p}{);}
+			\PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{DirectedEdge}\PYG{o}{\PYGZgt{}} \PYG{n}{edgesList} \PYG{o}{=} \PYG{k}{this}\PYG{p}{.}\PYG{n+na}{map}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{n}{stop\PYGZus{}id}\PYG{p}{);}
+			\PYG{k+kt}{boolean} \PYG{n}{exists} \PYG{o}{=} \PYG{k+kc}{false}\PYG{p}{;}
+			\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{edgesList0}\PYG{p}{.}\PYG{n+na}{size}\PYG{p}{();} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{// to avoid duplicates}
+				\PYG{k}{if} \PYG{p}{(}\PYG{n}{edgesList0}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{n}{i}\PYG{p}{).}\PYG{n+na}{to}\PYG{p}{()} \PYG{o}{==} \PYG{n}{stop\PYGZus{}id}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+					\PYG{n}{exists} \PYG{o}{=} \PYG{k+kc}{true}\PYG{p}{;}
+					\PYG{k}{break}\PYG{p}{;}
+				\PYG{p}{\PYGZcb{}}
+			\PYG{p}{\PYGZcb{}}
+			\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{exists}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+				\PYG{n}{DirectedEdge} \PYG{n}{newEdge0} \PYG{o}{=} \PYG{k}{new} \PYG{n}{DirectedEdge}\PYG{p}{(}\PYG{n}{stop\PYGZus{}id0}\PYG{p}{,} \PYG{n}{stop\PYGZus{}id}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+				\PYG{n}{DirectedEdge} \PYG{n}{newEdge} \PYG{o}{=} \PYG{k}{new} \PYG{n}{DirectedEdge}\PYG{p}{(}\PYG{n}{stop\PYGZus{}id}\PYG{p}{,} \PYG{n}{stop\PYGZus{}id0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+				\PYG{n}{edgesList}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{n}{newEdge}\PYG{p}{);}
+				\PYG{n}{edgesList0}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{n}{newEdge0}\PYG{p}{);}
+			\PYG{p}{\PYGZcb{}}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{o}{[}\PYG{p}{...}\PYG{o}{]}
+\end{Verbatim}

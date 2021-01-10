@@ -5,3 +5,7 @@
 \BOOKMARK [1][-]{section.2}{Creation of the graph}{}% 5
 \BOOKMARK [2][-]{subsection.2.1}{Graph}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.2}{Nodes}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.3}{Edges}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.4}{Weights}{section.2}% 9
+\BOOKMARK [1][-]{section.3}{Breadth-First Search}{}% 10
+\BOOKMARK [2][-]{subsection.3.1}{Shortest paths}{section.3}% 11
