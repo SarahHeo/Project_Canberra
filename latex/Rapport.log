@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.1.5)  10 JAN 2021 21:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.1.5)  10 JAN 2021 21:47
 entering extended mode
 **./Rapport.tex
 (Rapport.tex
@@ -1385,8 +1385,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 578--580
 \openout8 = `Rapport.lof'.
 
  [14] (Rapport.aux)
-Package rerunfilecheck Info: File `Rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 00BD6BDD996DBEBEE182CB9F4F0C998F;1160.
+
+Package rerunfilecheck Warning: File `Rapport.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Rapport.out':
+(rerunfilecheck)             Before: CF1D5360D60E8206785F93E875767ECA;1179
+(rerunfilecheck)             After:  00BD6BDD996DBEBEE182CB9F4F0C998F;1160.
 runsystem(del Rapport.pyg)...executed.
 
  ) 
@@ -1416,7 +1422,7 @@ sers/Takeb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
 y5.pfb><C:/Users/Takeb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmti10.pfb><C:/Users/Takeb/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
 e1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Rapport.pdf (15 pages, 2325050 bytes).
+Output written on Rapport.pdf (15 pages, 2325051 bytes).
 PDF statistics:
  423 PDF objects out of 1000 (max. 8388607)
  47 named destinations out of 1000 (max. 500000)
