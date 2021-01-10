@@ -69,7 +69,7 @@ Splitting the map into clusters
 	
 \begin{figure}[h]
 \begin{center}
-	\includegraphics[scale=1]{assets/data}
+	\includegraphics[scale=0.8]{assets/data}
 \end{center} 
 \caption{Data included in each \textit{.txt} file and relations between them}
 \end{figure} 
@@ -247,7 +247,7 @@ for (Map.Entry<Integer,List<DirectedEdge>> entry : this.map.entrySet()) {
 \caption{\mintinline{java}{private void addWeightsFromTxt(File stopsFile)}}
 \end{figure}
 
-The method \mintinline{java}{private void addWeightsFromTxt(File stopsFile)} is used only if the graph is weighted. It takes \textit{stops.txt} as input and extracts both stop\_lat and stop\_lon for each station to store it into a \mintinline{java}{Map} of \mintinline{java}{Coordinates} which is a \mintinline{java}{Class} that simply has stop\_lat and stop\_lon as attributes. Once the \mintinline{java}{Map} of \mintinline{java}{Coordinates} created, the method calculates the euclidean distance between starting node and destination node for every edge of the graph and set it as weights.
+\mintinline{java}{private void addWeightsFromTxt(File stopsFile)} is used only if the graph is weighted. It takes \textit{stops.txt} as input and extracts both stop\_lat and stop\_lon for each station to store it into a \mintinline{java}{Map} of \mintinline{java}{Coordinates} which is a \mintinline{java}{Class} that simply has stop\_lat and stop\_lon as attributes. Once the \mintinline{java}{Map} of \mintinline{java}{Coordinates} created, the method calculates the euclidean distance between starting node and destination node for every edge of the graph and set it as weights.
 
 \begin{figure}[h]
 \begin{gather*}
@@ -292,7 +292,11 @@ Here is an example of what this method would give for the R3 bus line of Canberr
 \end{figure}
 \end{center}
 
-\section{Breadth-First Search}
+\newpage
+
+\section{Pathfinding Algorithm}
+
+\subsection{Breadth-First Search}
 
 The Breadth-First Search algorithm has been implemented in the \mintinline{java}{BFSSP.java}. Methods of this class have all been made \mintinline{java}{static} as it is not necessary to store any data from one breadth-first search to the other. An user would likely use a breadth-first search on the graph of his choice and it makes more sense to just create a graph instead of having to create both a graph and a \mintinline{java}{BFS} instance. The method \mintinline{java}{public static List<Integer> bfs(Graph G, int startingNode)} takes a graph and a starting node as parameters and starts a breadth-first search.
 
@@ -305,6 +309,7 @@ While doing a breadth-first search, we need to store for each node three values:
 
 Just as for \mintinline{java}{Map} of \mintinline{java}{Graph.java}, it is more intuitive to use a \mintinline{java}{Map} to store all of these values. One approach could be to use three different \mintinline{java}{Map}, however, to use less memory and make the code more efficient we decided to use a single \mintinline{java}{Map} whose entries would store a tuple of three elements. This tuple contains a \mintinline{java}{boolean}, and two \mintinline{java}{int} and results in the creation of the \mintinline{java}{class} \mintinline{java}{MPD.java}.
 
+\begin{figure}[H]
 \begin{minted}[breaklines]{java}
 public static List<Integer> bfs(Graph G, int startingNode) {
 	List<Integer> path = new ArrayList<Integer>();
@@ -319,8 +324,7 @@ public static List<Integer> bfs(Graph G, int startingNode) {
 		
 		System.out.println("Please consider using Dijkstra Algorithm on weighted graph if you would like to find shortest paths.");
 		
-	}
-		
+	}	
 		while (!toVisitNodes.isEmpty()) {
 
 			int currentNode = toVisitNodes.remove(0);
@@ -339,22 +343,37 @@ public static List<Integer> bfs(Graph G, int startingNode) {
 	return path;
 }	
 \end{minted}
+\vspace*{-6mm}\caption{\mintinline{java}{public static List<Integer> bfs(Graph G, int startingNode)}}
+\end{figure}
 
-When doing the breadth-first search, the first thing to do is to check whether or not the graph given in parameter is weighted or not.  If it is weighted, the method warns the user that the breadth-first search cannot be used on weighted graph to look for shortest paths. However, it stills runs the breadth-first search, as even though it cannot be used to find shortest paths, it could still be used to discover connected nodes on a weighted graph.
+When doing the breadth-first search, the first thing to do is to check whether or not the graph given in parameter is weighted or not.  If it is weighted, the method warns the user that the breadth-first search cannot be used on weighted graph to look for shortest paths. However, it doesn't stop the method and stills runs the breadth-first search, as even though it cannot be used to find shortest paths, it could still be used to discover connected nodes on a weighted graph.
 
-\newpage
-
-The breadth-first search works as follows:
+Breadth-First Search Algorithm works as follows:
 \begin{itemize}
 \item[$\bullet$] Adds starting node given in parameter  to \mintinline{java}{toVisitNodes} which is the list of nodes the method is planning to visit
 \item[$\bullet$] Sets the first element of \mintinline{java}{toVisitNodes} as the current node and removes it from list ; sets its \mintinline{java}{MPD.marked} attribute to \mintinline{java}{true}
-\item[$\bullet$] For every neighbor of the current node, if the neighbor is not marked yet and if the neighbor is not contained in \mintinline{java}{toVisitNodes}
+\item[$\bullet$] For every neighbor of the current node, adds it to \mintinline{java}{toVisitNodes} if the it is not marked yet and if it is not contained in \mintinline{java}{toVisitNodes}
+\item[$\bullet$] Loops until \mintinline{java}{toVisitNodes} is empty, meaning there is not any remaining connected node that has yet to be visited
+\end{itemize}
+
+\subsection{Dijkstra Algorithm}
+
+The Breadth-First Search algorithm has been implemented in the \mintinline{java}{Dijkstra.java}. For the same reasons as the breadth-first search, all of the methods of Dijkstra Algorithm have been made static. The Dijkstra Algorithme uses the exact same attributes as the Breadth-First Search Algorithm which are \mintinline{java}{marked}, \mintinline{java}{previous}, \mintinline{java}{distance}, all contained in \mintinline{java}{MPD}. The advantage the Dijstra Algorithm has over the Breadth-First Search Algorithm is that it can look for shortest paths even in the graph with weighted edges.
+
+Dijkstra Algorithm works as follows:
+
+\begin{itemize}
+\item[$\bullet$] Adds starting node given in parameter  to \mintinline{java}{toVisitNodes} which is the list of nodes the method is planning to visit
+\item[$\bullet$] Sets the closest element of \mintinline{java}{toVisitNodes} (element with the shortest distance) as the current node and removes it from list ; sets its \mintinline{java}{MPD.marked} attribute to \mintinline{java}{true}
+\item[$\bullet$] For every neighbor of the current node: 
+\\ Updates the distance by replacing it if the distance is shorter than previously 
+\\ Adds it \mintinline{java}{toVisitNodes} only if it is not marked yet and if it is not contained in \mintinline{java}{toVisitNodes}
 \item[$\bullet$] Loops until \mintinline{java}{toVisitNodes} is empty, meaning there is not any remaining connected node that has yet to be visited
 \end{itemize}
 
 \subsection{Shortest paths}
 
-Assuming a breadth-first search has already been launched for the starting node of the shortest path the user is looking for. The shortest path can then first be printed.
+Assuming one of the aforementioned algorithms has already been launched for the starting node of the shortest path the user is looking for. The shortest path can then first be printed.
 
 Before printing a path, it is necessary to make sure this path actually exists. In order to do so, the method \mintinline{java}{public static boolean hasPathTo(int destination)} has been implemented. It simply returns a boolean indicating if a path exists or not. It can be done easily as the \mintinline{java}{marked} attribute of \mintinline{java}{MPD} solely serves this purpose and just returning its value does the trick.
 
@@ -362,7 +381,105 @@ Before printing a path, it is necessary to make sure this path actually exists. 
 
 Once these checks done, if a path exists and the starting node is distinct from the destination node, the starts loooking for the shortest path. It does so by browsing \mintinline{java}{MPD.previous} attribute starting from the destination node and going all the way back to the starting node. As the path is discovered from destination to start, the code builds the path backwards.
 
-\section{Dijkstra Algorithm}
+\newpage
 
+\section{Graph Clustering}
+
+\subsection{Calculate the edge-betweenness}
+
+A graph can be cut in many disconnected components also called clusters. As a cluster has to be completely disconnected from an other, it has been decided that the clusters would be created on non directed graphs. Indeed, as all the lines of a bus or subway can be ridden in direction and the opposite one, if the code were to remove edges to form clusters, it makes more sense to remove an edge in both directions simultaneously.
+
+In order to create clusters, it is necessary to calculate the edge-betweenness of all the edges inside our graph beforehand. To do so, a method named \mintinline{java}{updateCountSP(Graph G)} has been implemented inside \mintinline{java}{DijkstraSP.java}. This method look for all the shortest paths in the graph and update the edge-betweenness of every edge everytime they are being taken.
+
+The first algorithm we came out with is:
+
+\begin{itemize}
+\item[$\bullet$] Iterates through all the nodes constituting the graph
+\item[$\bullet$] Sets the current node as the starting node
+\item[$\bullet$] Starts a dijkstra with the starting node as a parameter
+\item[$\bullet$] For every destination node reached while doing dijkstra: looks for the path using \mintinline{java}{previous} by doing the same as in \mintinline{java}{printShortestPath()}
+\item[$\bullet$] While looking for the path, adds $1$ to the edge-betweenness of the edge connecting the previous node and the current node
+\item[$\bullet$] Loops until all the nodes of the graph have been used as starting nodes, meaning every shortest path has been created
+\end{itemize}
+
+\medbreak
+
+Because we have to do a dijkstra for every starting node and have to create a between every pair of nodes of the graph, this algorithm takes a lot of time and resources to execute.
+In order to make the algorithm more efficient, we have come up  with the following idea:
+
+\begin{itemize}
+\item[$\bullet$] Creates a list \mintinline{java}{unvisited} with all the nodes constituting the graph
+\item[$\bullet$] Iterates through all the nodes in \mintinline{java}{unvisited}
+\item[$\bullet$] Sets the current node as the starting node
+\item[$\bullet$] Starts a dijkstra with the starting node as a parameter
+\item[$\bullet$] For every node inside \mintinline{java}{unvisited}: looks for the path (from starting to destination) using \mintinline{java}{previous} by doing the same as in \mintinline{java}{printShortestPath()} and in the meantime, looks for the backward path (from destination to starting)
+\item[$\bullet$]  While looking for the path, adds $1$ to the edge-betweenness of the edges connecting the previous node and the current node (both the edge previous node -> current node and the edge current node -> previous node as the graph is non directed) because we are constructing the path and backward path at the same time
+\item[$\bullet$] Removes the starting node from \mintinline{java}{unvisited}
+\item[$\bullet$] Stops when done iterating through all the nodes of the graph, meaning every shortest path has been created
+\end{itemize}
+
+\medbreak
+
+This optimization comes from the observation that, since the graph is non directed, given two stations $a$ and $b$, the path $a->b$ and the path $b->a$ are necessarily the same but in reverse. That means, because we changed the code to build the paths heading to $a$ while it builds the paths heading from $a$, there is no need to build paths heading to $a$ again in the following iterations (for example $b->a$, $c->a$ etc.)
+
+\newpage
+
+\subsection{Finding clusters}
+
+In order to find our clusters and count them, the method \mintinline{java}{public static void findClusters(Graph g)} in the class \mintinline{java}{GraphClustering.java} has been created. 
+
+\begin{figure}[h]
+\begin{minted}[breaklines]{java}
+public static void findClusters(Graph g) {
+		System.out.println("...Searching for clusters...");
+		for (int key : g.getMap().keySet()) {
+			marked.put(key, false);
+		}
+		
+		int i = 0;
+		for (int node : g.getMap().keySet()) {
+			if (marked.get(node) == false) {
+				Cluster cluster = new Cluster();
+				List<Integer> dijkstraOutput = DijkstraSP.dijkstra(g, node); // dijkstra will go through each connected component
+				for (int dijkstraNode : dijkstraOutput) {
+					cluster.addNode(dijkstraNode);
+					marked.put(dijkstraNode, true);
+				}
+				clusters.put(i++,  cluster);
+			}
+		}
+	}
+\end{minted}
+\caption{\mintinline{java}{public static void findClusters(Graph g)}}
+\end{figure}
+The method uses a \mintinline{java}{Map} \mintinline{java}{marked} which takes a node label as a key and a boolean as the value. It is initialized by creating entries for all the nodes in the graph and setting their values to false. The method then iterates through all the nodes of the graph, if a node is not marked yet, it launches a dijkstra with this node as the starting node, it then stores all the nodes by the dijsktra in a new \mintinline{java}{Cluster} and mark them as visited in \mintinline{java}{marked}. It then adds the \mintinline{java}{Cluster} to a \mintinline{java}{static List<Cluster>} attribute of \mintinline{java}{GraphClustering.java}.
+
+\subsection{Creating clusters}
+
+\mintinline{java}{public static void createClusters(Graph G, int n)} allows an user to create as many clusters as given in argument in the desired graph. It takes the graph that has to be divided into clusters as well as the number of clusters wished as input.
+The algorithm implemented by this method is the following one:
+
+\begin{itemize}
+\item[$\bullet$] Updates the edge-betweenness of all the edges by calling \mintinline{java}{updateCountSP(Graph G)}
+\item[$\bullet$] Removes the edge with the highest edge-betweenness
+\item[$\bullet$] Looks for the clusters and their numbers by calling \mintinline{java}{findClusters(Graph G)}
+\item[$\bullet$] Stops when \mintinline{java}{n} clusters have been found or when there is not any edge left to remove from the graph
+\end{itemize}
+
+\newpage
+
+\section{Possible improvements}
+
+To reduce the execution time of \mintinline{java}{updateCountSP(Graph G)}, we have thought of other ideas but could not have the time to implement all of them. The first two ideas come from the fact that in a shortest path, every intermediary path is also a shortest path to the intermediary node.
+\begin{itemize}
+\item[$\bullet$] Knowing that, it means that when we are building a shortest path from a starting node to a destination node, we are actually building as many shortest paths as the number of nodes we have reached. Everytime the code reaches a node while building a shortest path, it also builds the shortest path to the node we have reached. The idea is therefore to take these intermediary paths into consideration and not build these paths again in the next iterations. If we could implement it, it would reduce the number of iterations.
+\item[$\bullet$] Coming from the same observation, the second idea is that when building a path, if we reach a node that already has a known path, there is no need to continue building, we could just concatenate the path. \\ \\
+The issue with both these ideas is that in our algorithm, we do not store any path (as it would use too much memory), we just build them and update the edge-betweenness for the edges taken. It is still possible to do but it is way trickier. One of the solutions for the second idea would be to use a \mintinline{java}{Map<Integer,List<DirectedEdge>}. Every time we reach a node, we check thanks to this list if the path already exists, if it is the case, we "concatenate" the path which is fairly simple as we just have to add $1$ to the edge-betweenness of every edge in the \mintinline{java}{List<DirectedEdge>} of the corresponding \mintinline{java}{Map.Entry}.
+\item[$\bullet$] The last idea we came up with comes with the observation that when removing an edge, not all the shortest paths are destroyed but only some of them. If we managed to identify which shortest paths are intact, we would not have to calculate the edge-betweenness of the edges taken by these shortest paths again. We would only have to update the edge-betweenness for the edges taken by destroyed shortest paths (remove $1$ to edge-betweenness) or taken by new shortest paths after the previous one has been destroyed (add $1$ to edge-betweenness).
+\end{itemize}
+
+\section{Conclusion}
+
+This project was really interesting to work on as it made use of the different algorithms we studied and how they could be use to find shortest paths, find connected components, create clusters and so on. As the graph we worked on was also rather large, it was interesting to think about ways of optimization of our algorithms in order to use as less memory as possible and to shorten as much as possible the execution time.
 
 \end{document}

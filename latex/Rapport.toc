@@ -7,5 +7,13 @@
 \contentsline {subsection}{\numberline {2.2}Nodes}{4}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Edges}{4}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Weights}{6}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Breadth-First Search}{6}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Shortest paths}{8}{subsection.3.1}%
+\contentsline {section}{\numberline {3}Pathfinding Algorithm}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Breadth-First Search}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Dijkstra Algorithm}{8}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Shortest paths}{8}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Graph Clustering}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Calculate the edge-betweenness}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Finding clusters}{10}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Creating clusters}{10}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Possible improvements}{11}{section.5}%
+\contentsline {section}{\numberline {6}Conclusion}{11}{section.6}%

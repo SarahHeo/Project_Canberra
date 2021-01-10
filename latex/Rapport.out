@@ -7,5 +7,13 @@
 \BOOKMARK [2][-]{subsection.2.2}{Nodes}{section.2}% 7
 \BOOKMARK [2][-]{subsection.2.3}{Edges}{section.2}% 8
 \BOOKMARK [2][-]{subsection.2.4}{Weights}{section.2}% 9
-\BOOKMARK [1][-]{section.3}{Breadth-First Search}{}% 10
-\BOOKMARK [2][-]{subsection.3.1}{Shortest paths}{section.3}% 11
+\BOOKMARK [1][-]{section.3}{Pathfinding Algorithm}{}% 10
+\BOOKMARK [2][-]{subsection.3.1}{Breadth-First Search}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.2}{Dijkstra Algorithm}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.3}{Shortest paths}{section.3}% 13
+\BOOKMARK [1][-]{section.4}{Graph Clustering}{}% 14
+\BOOKMARK [2][-]{subsection.4.1}{Calculate the edge-betweenness}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.2}{Finding clusters}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.3}{Creating clusters}{section.4}% 17
+\BOOKMARK [1][-]{section.5}{Possible improvements}{}% 18
+\BOOKMARK [1][-]{section.6}{Conclusion}{}% 19

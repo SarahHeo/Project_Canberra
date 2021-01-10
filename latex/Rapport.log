@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.1.5)  10 JAN 2021 13:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.1.5)  10 JAN 2021 15:55
 entering extended mode
 **./Rapport.tex
 (Rapport.tex
@@ -616,12 +616,12 @@ LaTeX Info: Redefining \nameref on input line 22.
 \@outlinefile=\write6
 \openout6 = `Rapport.out'.
 
-<assets/CanberraMap.pdf, id=47, 1195.01462pt x 2253.45894pt>
+<assets/CanberraMap.pdf, id=79, 1195.01462pt x 2253.45894pt>
 File: assets/CanberraMap.pdf Graphic file (type pdf)
 <use assets/CanberraMap.pdf>
 Package pdftex.def Info: assets/CanberraMap.pdf  used on input line 30.
 (pdftex.def)             Requested size: 238.99869pt x 450.6838pt.
-<assets/logoISEP.png, id=48, 642.4pt x 287.57437pt>
+<assets/logoISEP.png, id=80, 642.4pt x 287.57437pt>
 File: assets/logoISEP.png Graphic file (type png)
 <use assets/logoISEP.png>
 Package pdftex.def Info: assets/logoISEP.png  used on input line 33.
@@ -639,28 +639,24 @@ been already used, duplicate ignored
                    \relax 
 l.42 \cleardoublepage
                       [1]
-<assets/data.png, id=227, 461.92575pt x 286.671pt>
+<assets/data.png, id=267, 461.92575pt x 286.671pt>
 File: assets/data.png Graphic file (type png)
 <use assets/data.png>
 Package pdftex.def Info: assets/data.png  used on input line 72.
-(pdftex.def)             Requested size: 461.92462pt x 286.67029pt.
-
-Overfull \hbox (6.68051pt too wide) in paragraph at lines 72--73
- [] 
- []
-
-[2
+(pdftex.def)             Requested size: 369.54109pt x 229.3371pt.
+ [2
 
  <./assets/data.png>]
-<assets/R3.png, id=235, 446.26724pt x 184.89075pt>
+<assets/R3.png, id=275, 446.26724pt x 184.89075pt>
 File: assets/R3.png Graphic file (type png)
 <use assets/R3.png>
 Package pdftex.def Info: assets/R3.png  used on input line 86.
 (pdftex.def)             Requested size: 446.26614pt x 184.89027pt.
 \openout4 = `Rapport.pyg'.
 
- (_minted-Rapport/default-pyg-prefix.pygstyle)
-(_minted-Rapport/default.pygstyle)
+
+(_minted-Rapport/default-pyg-prefix.pygstyle) (_minted-Rapport/default.pygstyle
+)
 (_minted-Rapport/80DD1D80003BF6B4E57A7FE801D8D4B07C519CC260F8F7A387D37859EEFA51
 05.pygtex)
 \openout4 = `Rapport.pyg'.
@@ -880,11 +876,7 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
 
 
 (_minted-Rapport/5323583C5E13C55F28CADCB46D93D13E7C519CC260F8F7A387D37859EEFA51
-05.pygtex)
-Overfull \hbox (11.17078pt too wide) in paragraph at lines 250--251
-[]\OT1/cmr/m/n/10 The method [] is used only if the graph is weighted.
- []
-
+05.pygtex) [6]
 \openout4 = `Rapport.pyg'.
 
 
@@ -909,7 +901,7 @@ Overfull \hbox (11.17078pt too wide) in paragraph at lines 250--251
 
 
 (_minted-Rapport/5D21EFCB9E538736FA8228F5E3C7DE087C519CC260F8F7A387D37859EEFA51
-05.pygtex) [6]
+05.pygtex)
 \openout4 = `Rapport.pyg'.
 
 
@@ -968,14 +960,19 @@ Overfull \hbox (11.17078pt too wide) in paragraph at lines 250--251
 \openout3 = `Rapport.pyg'.
 
 
-(_minted-Rapport/6F3BE7125B4E527D5940BF032FBF1F4B7C519CC260F8F7A387D37859EEFA51
+(_minted-Rapport/629C1D4942B86D4D6D4D74183AED1BF67C519CC260F8F7A387D37859EEFA51
 05.pygtex
-Overfull \hbox (169.50044pt too wide) in paragraph at lines 27--27
+Overfull \hbox (169.50044pt too wide) in paragraph at lines 26--26
 \OT1/cmtt/m/n/10 mapMPD.[]get[](currentNode).[]distance[][]+[][]1[];[][][][][]|
   
  []
 
-) [7]
+)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/01999FDB603373755E661F73E1134AAC7C519CC260F8F7A387D37859EEFA51
+05.pygtex) [7]
 \openout4 = `Rapport.pyg'.
 
 
@@ -995,6 +992,71 @@ Overfull \hbox (169.50044pt too wide) in paragraph at lines 27--27
 
 
 (_minted-Rapport/74D9A83219CABAAB06A69FD318873F337C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/3607FCA585F64A75E2F9796FAF5078C07C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/3607FCA585F64A75E2F9796FAF5078C07C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/3607FCA585F64A75E2F9796FAF5078C07C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/9B39FA264CD39C10C6F9225694DB5D0E7C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/7FCA975872CA9DC9090CD7FCA82CDB947C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/C52129103313B36D120EDDE91516C6A37C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/8F6DB841166185F14FD87925FC54E9E37C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/FF33115053710B21F76247244EB104C07C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/3607FCA585F64A75E2F9796FAF5078C07C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/3607FCA585F64A75E2F9796FAF5078C07C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/E9D749D20BD5382A3E59688434917E7F7C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/74D9A83219CABAAB06A69FD318873F337C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/3607FCA585F64A75E2F9796FAF5078C07C519CC260F8F7A387D37859EEFA51
 05.pygtex)
 \openout4 = `Rapport.pyg'.
 
@@ -1041,7 +1103,7 @@ Overfull \hbox (169.50044pt too wide) in paragraph at lines 27--27
 
 (_minted-Rapport/EBE5DF6D130B5F0E684FF4D97465265F7C519CC260F8F7A387D37859EEFA51
 05.pygtex)
-Overfull \hbox (0.72498pt too wide) in paragraph at lines 1--362
+Overfull \hbox (0.72498pt too wide) in paragraph at lines 1--381
 [][] \OT1/cmr/m/n/10 first checks if the
  []
 
@@ -1049,17 +1111,167 @@ Overfull \hbox (0.72498pt too wide) in paragraph at lines 1--362
 
 
 (_minted-Rapport/5251D38812FB8D0E4655D77494BE03117C519CC260F8F7A387D37859EEFA51
-05.pygtex) [8] (Rapport.aux)
+05.pygtex) [8]
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/EBEBC912C7081C0E0D149129A8091AC87C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/7D0CDCBF760847EF99CC1402B9F0B7077C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/C52129103313B36D120EDDE91516C6A37C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/30D808F00082DD5AC5D7A0C29E9351D17C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/080E0810ED05B63C2F38113241459E827C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/080E0810ED05B63C2F38113241459E827C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/080E0810ED05B63C2F38113241459E827C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/C52129103313B36D120EDDE91516C6A37C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/30D808F00082DD5AC5D7A0C29E9351D17C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/080E0810ED05B63C2F38113241459E827C519CC260F8F7A387D37859EEFA51
+05.pygtex) [9]
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/F98DD02562CFDFD6A9DB45B158D117257C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/6D15F6E509ECD56F77FE348CA5F89FAC7C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout3 = `Rapport.pyg'.
+
+
+(_minted-Rapport/245029AC2F6E119678F3FDA1199C94177C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/F98DD02562CFDFD6A9DB45B158D117257C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/AC0E4F99992FDC2FD829C1E39D4A0F857C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/7FCA975872CA9DC9090CD7FCA82CDB947C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/022F4C534BCE6F29EFAC22DA48A082A77C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/7FCA975872CA9DC9090CD7FCA82CDB947C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/022F4C534BCE6F29EFAC22DA48A082A77C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/A636B3291591D6A0B5034DA4CB4783347C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/6D15F6E509ECD56F77FE348CA5F89FAC7C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/C0C72169AFD5CBADA84A71D7F829F51B7C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/EBEBC912C7081C0E0D149129A8091AC87C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/447211E250BDA9435932C868C3DDD11A7C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/FE13119FB084FE8BBF5FE3AB7CC89B3B7C519CC260F8F7A387D37859EEFA51
+05.pygtex) [10]
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/EBEBC912C7081C0E0D149129A8091AC87C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/3FC2AA32F3B6DD61548519D8772F563A7C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/FC9A876E0DC21701FB6A8E0E4147E0637C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/B50AAB3E509A1079672127F0992BEC577C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+Underfull \hbox (badness 10000) in paragraph at lines 476--478
+
+ []
+
+[11] (Rapport.aux)
 Package rerunfilecheck Info: File `Rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 44D6AAD3BA38E7D0EBCD9777899D5695;653.
+(rerunfilecheck)             Checksum: 51D171DAFA5EDAA3D423925654E9A81F;1160.
 runsystem(del Rapport.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 11305 strings out of 479586
- 214958 string characters out of 2861443
- 574695 words of memory out of 3000000
- 28052 multiletter control sequences out of 15000+200000
+ 11463 strings out of 479586
+ 228934 string characters out of 2861443
+ 589194 words of memory out of 3000000
+ 28094 multiletter control sequences out of 15000+200000
  407460 words of font info for 42 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  81i,15n,82p,1206b,652s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1080,9 +1292,9 @@ AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/
 Users/Takeb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
 ti10.pfb><C:/Users/Takeb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
 msfonts/cm/cmtt10.pfb>
-Output written on Rapport.pdf (9 pages, 2155860 bytes).
+Output written on Rapport.pdf (12 pages, 2174992 bytes).
 PDF statistics:
- 329 PDF objects out of 1000 (max. 8388607)
- 28 named destinations out of 1000 (max. 500000)
- 109 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 387 PDF objects out of 1000 (max. 8388607)
+ 41 named destinations out of 1000 (max. 500000)
+ 173 words of extra memory for PDF output out of 10000 (max. 10000000)
 
