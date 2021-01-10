@@ -382,7 +382,7 @@ Before printing a path, it is necessary to make sure this path actually exists. 
 
 Once these checks done, if a path exists and the starting node is distinct from the destination node, the algorithm starts looking for the shortest path. It does so by browsing \mintinline{java}{MPD.previous} attribute starting from the destination node and going all the way back to the starting node. As the path is discovered from destination to start, the code builds the path backwards.
 
-To check if our paths are built correctly, we used the \href{https://www.transport.act.gov.au/getting-around/journey-planner}{Australia Government Official Website Journey Planner} . After using our algorithm to print a shortest path, we used the \textit{stops.txt} file to find the name of the stations and checked if they were the same as in the journey planner.
+To check if our paths are built correctly, we used the \href{https://www.transport.act.gov.au/getting-around/journey-planner}{Australia Government Official Website Journey Planner}. After using our algorithm to print a shortest path, we used the \textit{stops.txt} file to find the name of the stations and checked if they were the same as in the journey planner.
 
 \newpage
 Here is below what the console returns for \mintinline{java}{printShortestPath(6155,6104)} for \mintinline{java}{dijkstra} on a weighted digraph:
@@ -515,7 +515,7 @@ The algorithm implemented by this method is the following one:
 
 \medbreak
 
-Here is below a table comparing the execution time of \mintinline{java}{createClusters()} before and after optimization for several number of clusters:
+Here is below a table comparing the execution time of \mintinline{java}{createClusters()} before and after optimization of the \mintinline{java}{updateCountSP()} for creating several number of clusters:
 
 \begin{center}
 \begin{figure}[h]
@@ -532,7 +532,7 @@ Here is below a table comparing the execution time of \mintinline{java}{createCl
  \hline
 \end{tabular}
 \end{center}
-\caption{Table of elapsed times before and after optimizations when creating $n$ clusters}
+\caption{Table of elapsed times before and after optimization when creating $n$ clusters}
 \end{figure}
 \end{center}
 
@@ -540,7 +540,7 @@ It can be seen that the optimization indeed makes the code more efficient as the
 
 These tests have been run on a computer using Windows 10 with the following specifications:
 \begin{itemize}
-\item[-] AMD Ryzen 5 2600U QuadCore 2.00GHz
+\item[-] AMD Ryzen 5 2500U QuadCore 2.00GHz
 \item[-] 8GB RAM 2400MHz
 \end{itemize}
 
