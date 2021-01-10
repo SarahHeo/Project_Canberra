@@ -39,7 +39,7 @@ public class Main {
 			+ "8- Display all shortest paths on weighted digraph (Dijkstra) [/!\\ takes lots of resources]" + "\n"
 			
 			+ "-------- Part 4 --------" + "\n"
-			+ "9- Create n clusters out of a unweighted graph" + "\n"
+			+ "9- Create n clusters out of a undirected weighted graph" + "\n"
 			
 			+ "0- Quit" + "\n");
 			
@@ -95,6 +95,7 @@ public class Main {
 						
 					/******* Part 4 *******/	
 					case 9:
+						// We consider the graph as undirected
 						UndirectedWGraph = new Graph();
 						UndirectedWGraph.convertTxt(stopsFile, stopTimesFile, true, false);
 						System.out.println("Number of nodes: " + UndirectedWGraph.getNbOfNodes()); //Number of nodes: 2433
