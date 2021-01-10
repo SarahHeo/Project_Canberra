@@ -64,18 +64,26 @@ Splitting the map into clusters
 	
 	To build our graph, we used data retrieved from \href{https://www.transport.act.gov.au/contact-us/information-for-developers}{Australia Government official website}. This data come as multiple \textit{.txt} files. After studying them, it has been figured out that only \textit{stops.txt} and \textit{stop\_times.txt} were actually useful.
 	
+\begin{figure}[h]
 \begin{center}
-\includegraphics[scale=1]{assets/data}
-\end{center}
+	\includegraphics[scale=1]{assets/data}
+\end{center} 
+\caption{Data included in each \textit{.txt} file and relations between them}
+\end{figure} 
+
 
 	Using only those, we could create the stations which are represented in our graph as nodes and we could also link each of them and thus creating our edges.
 	
 \newpage
 	
 	The \textit{stops.txt} file provide us with \textit{stop\_id},  \textit{stop\_lat}, \textit{stop\_lon} which are all the information we needed to create our nodes while the \textit{stop\_times.txt} give us \textit{trip\_id} which allow us to create our edges. A trip informs about which stations are linked together and in which order as it defines a bus or subway line such as the R3 line of Canberra for example:
+	
+\begin{figure}[h]
 \begin{center}
-\includegraphics[scale=1]{assets/R3}
+	\includegraphics[scale=1]{assets/R3}
 \end{center}
+\caption{R3 subway line of Canberra}
+\end{figure} 
 
 \section{Creation of the graph}
 
@@ -85,7 +93,7 @@ Splitting the map into clusters
 The class contains the three following attributes:
 
 \begin{itemize}
-\item[-]\mintinline{java}{private Map<Integer, List<DirectedEdge>> map = new TreeMap<Integer,List<DirectedEdge>>()} which are the adjacency lists of every node of our graphs. Each \mintinline{java}{Key} of the \mintinline{java}{Map} designates a node of our graph and the corresponding \mintinline{java}{Value} of the \mintinline{java}{Map} is its adjacency list.
+\item[-]\mint[breaklines, breaksymbolleft=]{java}{private Map<Integer, List<DirectedEdge>> map = new TreeMap<Integer,List<DirectedEdge>>()} This \mintinline{java}{Map} is used to store the adjacency lists of every node of our graphs. Each \mintinline{java}{Key} of the \mintinline{java}{Map} designates a node of our graph and the corresponding \mintinline{java}{Value} of the \mintinline{java}{Map} is its adjacency list. The choice to use a \mintinline{java}{Map} over a \mintinline{java}{List} is because unlike graphs where nodes labels are consecutive numbers, the stations of Canberra are not labeled consecutively. Therefore, using a \mintinline{java}{Map} makes it easier to look for an adjacency list of a specific station. This would not have been possible with a \mintinline{java}{List}. 
 \item[-]\mintinline{java}{private boolean weighted} indicates if the graph is weighted or not.
 \item[-]\mintinline{java}{private boolean directed} indicates if the graph is directed or not.
 \end{itemize}
@@ -93,12 +101,25 @@ The class contains the three following attributes:
 	Besides these attributes, \mintinline{java}{Graph.java} also has several methods whose most important ones are the following:
 
 \begin{itemize}
+\item[-]\mint[breaklines, breaksymbolleft=]{java}{private void convertTxt(File stopsFile, File stopTimesFile, boolean weighted, boolean directed)}
 \item[-]\mint{java}{private void addNodesFromTxt(File stopsFile)}
 \item[-]\mint{java}{private void addEdgesFromTxt(File stopTimesFile)}
 \item[-]\mint{java}{private void addWeightsFromTxt(File stopsFile)}
 \end{itemize}
 
-All of these methods are used to parse \textit{stops.txt} and \textit{stop\_times.txt}, retrieve the data and create the content of our graph which are nodes and edges.
+\begingroup
+\setlength{\rightskip}{0pt plus 1 fil}
+The first method is used to initialize a graph by calling the other three methods and in the meantime setting the attributes \mintinline[breaklines, breakafter=_]{java}{private boolean weighted} and \mintinline{java}{private boolean directed}.
+\endgroup
+
+The other three methods are used to parse \textit{stops.txt} and \textit{stop\_times.txt}, retrieve the data and create the nodes and edges of our graph.
+
+\subsection{Nodes}
+
+For \textit{stops.txt}, each line was containing these informations in this order: stop\_id, stop\_name, stop\_lat, stop\_lon. In order to create our nodes, we had to use the stop\_id as labels for our nodes. To do so 
+
+For \textit{stop\_times.txt}, the informations are the following ones: trip\_id, arrival\_time, departure\_time, stop\_id, stop\_sequence, timepoint.
+
 
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.1.5)  9 JAN 2021 21:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.1.5)  10 JAN 2021 01:01
 entering extended mode
 **./Rapport.tex
 (Rapport.tex
@@ -488,12 +488,12 @@ LaTeX Info: Redefining \nameref on input line 19.
 \@outlinefile=\write6
 \openout6 = `Rapport.out'.
 
-<assets/CanberraMap.pdf, id=27, 1195.01462pt x 2253.45894pt>
+<assets/CanberraMap.pdf, id=31, 1195.01462pt x 2253.45894pt>
 File: assets/CanberraMap.pdf Graphic file (type pdf)
 <use assets/CanberraMap.pdf>
 Package pdftex.def Info: assets/CanberraMap.pdf  used on input line 27.
 (pdftex.def)             Requested size: 238.99869pt x 450.6838pt.
-<assets/logoISEP.png, id=28, 642.4pt x 287.57437pt>
+<assets/logoISEP.png, id=32, 642.4pt x 287.57437pt>
 File: assets/logoISEP.png Graphic file (type png)
 <use assets/logoISEP.png>
 Package pdftex.def Info: assets/logoISEP.png  used on input line 30.
@@ -516,23 +516,23 @@ been already used, duplicate ignored
                    \relax 
 l.39 \cleardoublepage
                       [1]
-<assets/data.png, id=202, 461.92575pt x 286.671pt>
+<assets/data.png, id=207, 461.92575pt x 286.671pt>
 File: assets/data.png Graphic file (type png)
 <use assets/data.png>
-Package pdftex.def Info: assets/data.png  used on input line 68.
+Package pdftex.def Info: assets/data.png  used on input line 69.
 (pdftex.def)             Requested size: 461.92462pt x 286.67029pt.
 
-Overfull \hbox (6.68051pt too wide) in paragraph at lines 68--69
+Overfull \hbox (6.68051pt too wide) in paragraph at lines 69--70
  [] 
  []
 
 [2
 
  <./assets/data.png>]
-<assets/R3.png, id=209, 446.26724pt x 184.89075pt>
+<assets/R3.png, id=215, 446.26724pt x 184.89075pt>
 File: assets/R3.png Graphic file (type png)
 <use assets/R3.png>
-Package pdftex.def Info: assets/R3.png  used on input line 77.
+Package pdftex.def Info: assets/R3.png  used on input line 83.
 (pdftex.def)             Requested size: 446.26614pt x 184.89027pt.
 \openout4 = `Rapport.pyg'.
 
@@ -548,6 +548,11 @@ Package pdftex.def Info: assets/R3.png  used on input line 77.
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2.
 )
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/AC0E4F99992FDC2FD829C1E39D4A0F857C519CC260F8F7A387D37859EEFA51
+05.pygtex)
 \openout4 = `Rapport.pyg'.
 
 
@@ -568,10 +573,26 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
 
 (_minted-Rapport/AC0E4F99992FDC2FD829C1E39D4A0F857C519CC260F8F7A387D37859EEFA51
 05.pygtex)
-Overfull \hbox (31.75189pt too wide) in paragraph at lines 1--89
-[][]
- []
+\openout4 = `Rapport.pyg'.
 
+
+(_minted-Rapport/AC0E4F99992FDC2FD829C1E39D4A0F857C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/D6391049C74E44899E005C3E80FDE7E87C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/AC0E4F99992FDC2FD829C1E39D4A0F857C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/D6391049C74E44899E005C3E80FDE7E87C519CC260F8F7A387D37859EEFA51
+05.pygtex)
 \openout4 = `Rapport.pyg'.
 
 
@@ -590,6 +611,11 @@ Overfull \hbox (31.75189pt too wide) in paragraph at lines 1--89
 \openout4 = `Rapport.pyg'.
 
 
+(_minted-Rapport/08F70E41DC030990B7D552B6CA2591DB7C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
 (_minted-Rapport/68A2119344712DBEA87C6661549BF55F7C519CC260F8F7A387D37859EEFA51
 05.pygtex)
 \openout4 = `Rapport.pyg'.
@@ -601,20 +627,30 @@ Overfull \hbox (31.75189pt too wide) in paragraph at lines 1--89
 
 
 (_minted-Rapport/57319A257C8E26AEDA0155D8889B8A937C519CC260F8F7A387D37859EEFA51
-05.pygtex) Excluding 'comment' comment. [3 <./assets/R3.png>] (Rapport.aux)
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/ECD6F220666341A9B2171FDB22F66CCB7C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/722E534EA45C708CB0308D9765E129667C519CC260F8F7A387D37859EEFA51
+05.pygtex) [3 <./assets/R3.png>] Excluding 'comment' comment. [4] (Rapport.aux)
 Package rerunfilecheck Info: File `Rapport.out' has not changed.
-(rerunfilecheck)             Checksum: C493AB93C83CA9BB18F0DF49DD207FB7;369.
+(rerunfilecheck)             Checksum: E2F6A702D20BDEEB9486C669F3333920;423.
 runsystem(del Rapport.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 9371 strings out of 479586
- 166111 string characters out of 2861443
- 514009 words of memory out of 3000000
- 26350 multiletter control sequences out of 15000+200000
+ 9405 strings out of 479586
+ 168596 string characters out of 2861443
+ 518520 words of memory out of 3000000
+ 26362 multiletter control sequences out of 15000+200000
  406670 words of font info for 38 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 81i,5n,82p,752b,415s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 81i,9n,82p,1206b,549s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Takeb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb><C:/Users/Takeb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmbx12.pfb><C:/Users/Takeb/AppData/Local/Programs/MiKTeX 2.9/f
@@ -623,9 +659,9 @@ s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Takeb/AppData/L
 ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Ta
 keb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb
 >
-Output written on Rapport.pdf (4 pages, 2066058 bytes).
+Output written on Rapport.pdf (5 pages, 2069476 bytes).
 PDF statistics:
- 240 PDF objects out of 1000 (max. 8388607)
- 11 named destinations out of 1000 (max. 500000)
- 69 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 252 PDF objects out of 1000 (max. 8388607)
+ 15 named destinations out of 1000 (max. 500000)
+ 77 words of extra memory for PDF output out of 10000 (max. 10000000)
 
