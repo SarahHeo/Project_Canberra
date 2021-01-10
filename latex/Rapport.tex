@@ -499,6 +499,8 @@ public static void findClusters(Graph g) {
 \end{figure}
 The method uses a \mintinline{java}{Map} \mintinline{java}{marked} which takes a node label as a key and a boolean as the value. It is initialized by creating entries for all the nodes in the graph and setting their values to false. The method then iterates through all the nodes of the graph, if a node is not marked yet, it launches a dijkstra with this node as the starting node. Afterwards, it stores all the nodes by the dijsktra in a new \mintinline{java}{Cluster} and marks them as visited in \mintinline{java}{marked}. It finally adds the \mintinline{java}{Cluster} to a \mintinline{java}{static List<Cluster>} attribute of \mintinline{java}{GraphClustering.java}.
 
+\newpage
+
 \subsection{Creating clusters}
 
 \mintinline{java}{public static void createClusters(Graph G, int n)} allows a user to create as many clusters as given in argument in the desired graph. It takes the graph that has to be divided into clusters as well as the number of clusters wished as input.
@@ -510,6 +512,61 @@ The algorithm implemented by this method is the following one:
 \item[$\bullet$] Looks for the clusters and their numbers by calling \mintinline{java}{findClusters(Graph G)}
 \item[$\bullet$] Stops when \mintinline{java}{n} clusters have been found or when there is not any edge left to remove from the graph
 \end{itemize}
+
+\medbreak
+
+Here is below a table comparing the execution time of \mintinline{java}{createClusters()} before and after optimization for several number of clusters:
+
+\begin{center}
+\begin{figure}[h]
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c| } 
+ \hline
+ Number of clusters created & 2 & 4 & 8 & 16 \\ 
+ \hline
+ Number of edges removed & 4 & 32 & 55 & 99 \\
+ \hline
+ Time elapsed before optimization & 06:24 & 21:10 & 27:46 & 32:01 \\
+ \hline
+ Time elapsed after optimization & 04:52 & 16:31 & 19:55 & 24:29 \\
+ \hline
+\end{tabular}
+\end{center}
+\caption{Table of elapsed times before and after optimizations when creating $n$ clusters}
+\end{figure}
+\end{center}
+
+It can be seen that the optimization indeed makes the code more efficient as the execution time ends up being reduced. For 2 clusters, the reduction is only about $01:30$ but as we increase the number of desired clusters, the reduction ends up being more and more important reaching about 8 minutes for both 8 and 16 clusters.
+
+These tests have been run on a computer using Windows 10 with the following specifications:
+\begin{itemize}
+\item[-] AMD Ryzen 5 2600U QuadCore 2.00GHz
+\item[-] 8GB RAM 2400MHz
+\end{itemize}
+
+\medbreak
+
+Below lies an example of what the console return when we create 4 clusters.
+
+\begin{minted}[breaklines]{java}
+...Updating edge-betweenness of all edges...
+Edge (2039;2041) with 326112 SP going through will be removed
+
+...Searching for clusters...
+Cluster 1 (632 stations): 2 1808 1908 [...] 2042 2654 2041
+
+Cluster 2 (516 stations): 201 1250 1252 [...] 1271 1265 1270
+
+Cluster 3 (832 stations): 300 3234 3236 [...] 4180 4938 4182 
+
+Cluster 4 (453 stations): 401 403 4323 [...] 4103 4105 4807 
+4 cluster(s) have been found 
+
+32 edges have been removed
+Execution time : 17 min 52 s
+\end{minted}
+
+We can see that it returns some useful information. At each iteration, it displays the edge that is going to be removed with the amount of shortest paths going through. At each iteration, it also displays the number of clusters found, the clusters and their respective stations. Finally, at the end of the process, it prints the number of removed edges as well as the execution time.
 
 \newpage
 

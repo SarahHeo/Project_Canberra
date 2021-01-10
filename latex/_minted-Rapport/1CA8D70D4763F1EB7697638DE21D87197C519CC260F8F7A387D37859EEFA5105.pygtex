@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{...}\PYG{n+na}{Updating} \PYG{n}{edge}\PYG{o}{\PYGZhy{}}\PYG{n}{betweenness} \PYG{n}{of} \PYG{n}{all} \PYG{n}{edges}\PYG{p}{...}
+\PYG{n+nf}{Edge} \PYG{p}{(}\PYG{l+m+mi}{2039}\PYG{p}{;}\PYG{l+m+mi}{2041}\PYG{p}{)} \PYG{n}{with} \PYG{l+m+mi}{326112} \PYG{n}{SP} \PYG{n}{going} \PYG{n}{through} \PYG{n}{will} \PYG{n}{be} \PYG{n}{removed}
+
+\PYG{p}{...}\PYG{n+na}{Searching} \PYG{k}{for} \PYG{n}{clusters}\PYG{p}{...}
+\PYG{n}{Cluster} \PYG{l+m+mi}{1} \PYG{p}{(}\PYG{l+m+mi}{632} \PYG{n}{stations}\PYG{p}{):} \PYG{l+m+mi}{2} \PYG{l+m+mi}{1808} \PYG{l+m+mi}{1908} \PYG{o}{[}\PYG{p}{...}\PYG{o}{]} \PYG{l+m+mi}{2042} \PYG{l+m+mi}{2654} \PYG{l+m+mi}{2041}
+
+\PYG{n}{Cluster} \PYG{l+m+mi}{2} \PYG{p}{(}\PYG{l+m+mi}{516} \PYG{n}{stations}\PYG{p}{):} \PYG{l+m+mi}{201} \PYG{l+m+mi}{1250} \PYG{l+m+mi}{1252} \PYG{o}{[}\PYG{p}{...}\PYG{o}{]} \PYG{l+m+mi}{1271} \PYG{l+m+mi}{1265} \PYG{l+m+mi}{1270}
+
+\PYG{n}{Cluster} \PYG{l+m+mi}{3} \PYG{p}{(}\PYG{l+m+mi}{832} \PYG{n}{stations}\PYG{p}{):} \PYG{l+m+mi}{300} \PYG{l+m+mi}{3234} \PYG{l+m+mi}{3236} \PYG{o}{[}\PYG{p}{...}\PYG{o}{]} \PYG{l+m+mi}{4180} \PYG{l+m+mi}{4938} \PYG{l+m+mi}{4182}
+
+\PYG{n}{Cluster} \PYG{l+m+mi}{4} \PYG{p}{(}\PYG{l+m+mi}{453} \PYG{n}{stations}\PYG{p}{):} \PYG{l+m+mi}{401} \PYG{l+m+mi}{403} \PYG{l+m+mi}{4323} \PYG{o}{[}\PYG{p}{...}\PYG{o}{]} \PYG{l+m+mi}{4103} \PYG{l+m+mi}{4105} \PYG{l+m+mi}{4807}
+\PYG{l+m+mi}{4} \PYG{n}{cluster}\PYG{p}{(}\PYG{n}{s}\PYG{p}{)} \PYG{n}{have} \PYG{n}{been} \PYG{n}{found}
+
+\PYG{l+m+mi}{32} \PYG{n}{edges} \PYG{n}{have} \PYG{n}{been} \PYG{n}{removed}
+\PYG{n}{Execution} \PYG{n}{time} \PYG{p}{:} \PYG{l+m+mi}{17} \PYG{n}{min} \PYG{l+m+mi}{52} \PYG{n}{s}
+\end{Verbatim}

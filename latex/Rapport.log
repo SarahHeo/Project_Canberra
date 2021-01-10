@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.1.5)  10 JAN 2021 20:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.1.5)  10 JAN 2021 21:19
 entering extended mode
 **./Rapport.tex
 (Rapport.tex
@@ -1295,7 +1295,7 @@ Package pdftex.def Info: assets/JourneyPlanner.png  used on input line 421.
 
 
 (_minted-Rapport/6D15F6E509ECD56F77FE348CA5F89FAC7C519CC260F8F7A387D37859EEFA51
-05.pygtex)
+05.pygtex) [11]
 \openout4 = `Rapport.pyg'.
 
 
@@ -1315,7 +1315,17 @@ Package pdftex.def Info: assets/JourneyPlanner.png  used on input line 421.
 
 
 (_minted-Rapport/FE13119FB084FE8BBF5FE3AB7CC89B3B7C519CC260F8F7A387D37859EEFA51
-05.pygtex) [11]
+05.pygtex)
+\openout4 = `Rapport.pyg'.
+
+
+(_minted-Rapport/ABB1005EB7069B5EB219C09D782C4A867C519CC260F8F7A387D37859EEFA51
+05.pygtex)
+\openout3 = `Rapport.pyg'.
+
+
+(_minted-Rapport/1CA8D70D4763F1EB7697638DE21D87197C519CC260F8F7A387D37859EEFA51
+05.pygtex) [12]
 \openout4 = `Rapport.pyg'.
 
 
@@ -1336,11 +1346,11 @@ Package pdftex.def Info: assets/JourneyPlanner.png  used on input line 421.
 
 (_minted-Rapport/B50AAB3E509A1079672127F0992BEC577C519CC260F8F7A387D37859EEFA51
 05.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 521--523
+Underfull \hbox (badness 10000) in paragraph at lines 578--580
 
  []
 
-[12] (Rapport.lof
+[13] (Rapport.lof
 \openout4 = `Rapport.pyg'.
 
 
@@ -1369,17 +1379,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 521--523
 \tf@lof=\write8
 \openout8 = `Rapport.lof'.
 
- [13] (Rapport.aux)
+runsystem(del _minted-Rapport\B1158189DB142B9DA670C73D3F5978D27C519CC260F8F7A38
+7D37859EEFA5105.pygtex)...executed.
+
+ [14] (Rapport.aux)
 Package rerunfilecheck Info: File `Rapport.out' has not changed.
 (rerunfilecheck)             Checksum: 00BD6BDD996DBEBEE182CB9F4F0C998F;1160.
 runsystem(del Rapport.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 12793 strings out of 479586
- 257868 string characters out of 2861443
- 607917 words of memory out of 3000000
- 29378 multiletter control sequences out of 15000+200000
+ 12807 strings out of 479586
+ 258967 string characters out of 2861443
+ 608772 words of memory out of 3000000
+ 29383 multiletter control sequences out of 15000+200000
  407759 words of font info for 43 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  81i,15n,113p,1201b,691s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1401,9 +1414,9 @@ sers/Takeb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
 y5.pfb><C:/Users/Takeb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmti10.pfb><C:/Users/Takeb/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
 e1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Rapport.pdf (14 pages, 2320282 bytes).
+Output written on Rapport.pdf (15 pages, 2324012 bytes).
 PDF statistics:
- 417 PDF objects out of 1000 (max. 8388607)
- 45 named destinations out of 1000 (max. 500000)
+ 423 PDF objects out of 1000 (max. 8388607)
+ 47 named destinations out of 1000 (max. 500000)
  178 words of extra memory for PDF output out of 10000 (max. 10000000)
 
