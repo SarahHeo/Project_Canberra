@@ -1,0 +1,9 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces Data included in each \textit {.txt} file and relations between them}}{2}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces R3 bus line of Canberra}}{3}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces \mintinline {java}{private void addNodesFromTxt(File stopsFile)}}}{4}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces \mintinline {java}{private void addEdgesFromTxt(File stopTimesFile)}}}{5}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces \mintinline {java}{private void addWeightsFromTxt(File stopsFile)}}}{6}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Euclidean distance formula in two dimensions}}{6}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Table of coordinates and distances for edges of the R3 bus line of Canberra}}{6}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces \mintinline {java}{public static List<Integer> bfs(Graph G, int startingNode)}}}{7}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces \mintinline {java}{public static void findClusters(Graph g)}}}{10}{figure.9}%
