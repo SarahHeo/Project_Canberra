@@ -1,0 +1,19 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}City of choice}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Goals of the project}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Collection of data : GTFS files}{2}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Creation of the graph}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Graph}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Nodes}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Edges}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Weights}{6}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Pathfinding Algorithm}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Breadth First Search}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Dijkstra Algorithm}{8}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Shortest paths}{8}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Graph Clustering}{10}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Calculate the edge-betweenness}{10}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Finding clusters}{11}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Creating clusters}{12}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Possible improvements}{13}{section.5}%
+\contentsline {section}{\numberline {6}Conclusion}{13}{section.6}%
