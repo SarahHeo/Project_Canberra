@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{public} \PYG{k+kd}{static} \PYG{k+kt}{void} \PYG{n+nf}{findClusters}\PYG{p}{(}\PYG{n}{Graph} \PYG{n}{g}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}...Searching for clusters...\PYGZdq{}}\PYG{p}{);}
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{key} \PYG{p}{:} \PYG{n}{g}\PYG{p}{.}\PYG{n+na}{getMap}\PYG{p}{().}\PYG{n+na}{keySet}\PYG{p}{())} \PYG{p}{\PYGZob{}}
+		\PYG{n}{marked}\PYG{p}{.}\PYG{n+na}{put}\PYG{p}{(}\PYG{n}{key}\PYG{p}{,} \PYG{k+kc}{false}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+	
+	\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{node} \PYG{p}{:} \PYG{n}{g}\PYG{p}{.}\PYG{n+na}{getMap}\PYG{p}{().}\PYG{n+na}{keySet}\PYG{p}{())} \PYG{p}{\PYGZob{}}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{marked}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{n}{node}\PYG{p}{)} \PYG{o}{==} \PYG{k+kc}{false}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{n}{Cluster} \PYG{n}{cluster} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Cluster}\PYG{p}{();}
+			\PYG{n}{List}\PYG{o}{\PYGZlt{}}\PYG{n}{Integer}\PYG{o}{\PYGZgt{}} \PYG{n}{dijkstraOutput} \PYG{o}{=} \PYG{n}{DijkstraSP}\PYG{p}{.}\PYG{n+na}{dijkstra}\PYG{p}{(}\PYG{n}{g}\PYG{p}{,} \PYG{n}{node}\PYG{p}{);} \PYG{c+c1}{// dijkstra will go through each connected component}
+			\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{dijkstraNode} \PYG{p}{:} \PYG{n}{dijkstraOutput}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+				\PYG{n}{cluster}\PYG{p}{.}\PYG{n+na}{addNode}\PYG{p}{(}\PYG{n}{dijkstraNode}\PYG{p}{);}
+				\PYG{n}{marked}\PYG{p}{.}\PYG{n+na}{put}\PYG{p}{(}\PYG{n}{dijkstraNode}\PYG{p}{,} \PYG{k+kc}{true}\PYG{p}{);}
+			\PYG{p}{\PYGZcb{}}
+			\PYG{n}{clusters}\PYG{p}{.}\PYG{n+na}{put}\PYG{p}{(}\PYG{n}{i}\PYG{o}{++}\PYG{p}{,}  \PYG{n}{cluster}\PYG{p}{);}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

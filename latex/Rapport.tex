@@ -12,6 +12,8 @@
 % To write formulas and equations
 \usepackage{amsmath}
 \usepackage{adjustbox}
+\usepackage{caption}
+\usepackage{subcaption}
 % Setting all hyperlinks color to black, then setting only url colors to blue
 \hypersetup{
   colorlinks,
@@ -380,13 +382,57 @@ Before printing a path, it is necessary to make sure this path actually exists. 
 
 Once these checks done, if a path exists and the starting node is distinct from the destination node, the algorithm starts looking for the shortest path. It does so by browsing \mintinline{java}{MPD.previous} attribute starting from the destination node and going all the way back to the starting node. As the path is discovered from destination to start, the code builds the path backwards.
 
+To check if our paths are built correctly, we used the \href{https://www.transport.act.gov.au/getting-around/journey-planner}{Australia Government Official Website Journey Planner} . After using our algorithm to print a shortest path, we used the \textit{stops.txt} file to find the name of the stations and checked if they were the same as in the journey planner.
+
+\newpage
+Here is below what the console returns for \mintinline{java}{printShortestPath(6155,6104)} for \mintinline{java}{dijkstra} on a weighted digraph:
+
+\begin{minted}[breaklines]{java}
+The path from 6155 to node 6104 is 6155 4754 4756 4758 4934 4919 6092 6006 6008 6070 6053 6055 6057 6059 6074 6341 6182 6184 7010 7012 5085 6028 6026 6024 6038 6035 6033 6032 6049 6048 6154 6129 6102 6104
+\end{minted}
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \begin{tabular}{ |c|c| } 
+ \hline
+ Station ID & Station name \\ 
+ \hline
+ 6155 & Bimberi Centre \\
+ \hline
+ 6104 & Bernard Heinze Av before Crackajack Way \\
+ \hline
+ 4754 & Sandford St after Flemington Rd \\
+ \hline
+ 4756 & Sandford St opp 2nd Kemble Crt \\
+ \hline
+ 4758 & Hoskins St opp Lysaght St \\
+ \hline
+ 4934 & Hoskins St before Dacre St \\
+ \hline
+ 4919 & Hoskins St before Well Station Dr \\
+ \hline
+\end{tabular}
+  \caption{Table of stations ID and names}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.7\linewidth]{assets/JourneyPlanner}
+  \caption{Journey Planner Path}
+\end{subfigure}
+\caption{Comparison between found path and official journey planner path}
+\end{figure}
+
+Using the \href{https://www.transport.act.gov.au/journey-planner-map?flat=-35.22262&flng=149.15615&fname=Bimberi%20Centre&fid=pt_pub|AU_ACT_Canberra|6155&fsrc=SKEDGO&tlat=-35.157483&tlng=149.117915&tname=Bernard%20Heinze%20Avenue%20before%20Crackajack%20Way,%20Canberra,%20ACT,%20Australia&tid=node/6357446892&tsrc=PELIAS&type=0&time=1610299291}{Australia Government Official Website Journey Planner}, we looked for the path from Bimberi Centre to Bernard Heinze Av before Crackajack Way which is no other than the path from station 6155 to 6104 the console printed. Looking at the table provided above and the screenshot of the journey planner, we can see that the first stations returned by the dijkstra are exactly the same as the stations given by the journey planner.
+
 \newpage
 
 \section{Graph Clustering}
 
 \subsection{Calculate the edge-betweenness}
 
-A graph can be cut in many disconnected components also called clusters. As a cluster has to be completely disconnected from an other, it has been decided that the clusters would be created on undirected graphs. Indeed, as all the lines of a bus or subway can be ridden in direction and the opposite one, if the code was to remove edges to form clusters, it makes more sense to remove an edge in both directions simultaneously.
+A graph can be cut in many disconnected components also called clusters. As a cluster has to be completely disconnected from an other, it has been decided that the clusters would be created on undirected graphs. Indeed, as all the lines of a bus or subway can be ridden in a direction and the opposite one, if the code was to remove edges to form clusters, it makes more sense to remove an edge in both directions simultaneously.
 
 In order to create clusters, it is necessary to calculate the edge-betweenness of all the edges inside our graph beforehand. To do so, a method named \mintinline{java}{updateCountSP(Graph G)} has been implemented inside \mintinline{java}{DijkstraSP.java}. This method looks for all the shortest paths in the graph and updates the edge-betweenness of every edge everytime they are being taken.
 
@@ -412,14 +458,14 @@ In order to make the algorithm more efficient, we have come up  with the followi
 \item[$\bullet$] Sets the current node as the starting node
 \item[$\bullet$] Starts a dijkstra with the starting node as a parameter
 \item[$\bullet$] For every node inside \mintinline{java}{unvisited}: looks for the path (from starting to destination) using \mintinline{java}{previous} by doing the same as in \mintinline{java}{printShortestPath()} and in the meantime, looks for the backward path (from destination to starting)
-\item[$\bullet$] While looking for the path, adds $1$ to the edge-betweenness of the edges connecting the previous node and the current node (both the edge previous node -> current node and the edge current node -> previous node as the graph is undirected) because we are constructing the path and backwarding path at the same time
+\item[$\bullet$] While looking for the path, adds $1$ to the edge-betweenness of the edges connecting the previous node and the current node (both the edge previous node $\rightarrow$ current node and the edge current node $\rightarrow$ previous node as the graph is undirected) because we are constructing the path and backwarding path at the same time
 \item[$\bullet$] Removes the starting node from \mintinline{java}{unvisited}
 \item[$\bullet$] Stops when done iterating through all the nodes of the graph, meaning every shortest path has been created
 \end{itemize}
 
 \medbreak
 
-This optimization comes from the observation that, since the graph is undirected, given two stations $a$ and $b$, the path $a->b$ and the path $b->a$ are necessarily the same but in reverse. That means, because we changed the code to build the paths heading to $a$ while it builds the paths heading from $a$, there is no need to build paths heading to $a$ again in the following iterations (for example $b->a$, $c->a$ etc.)
+This optimization comes from the observation that, since the graph is undirected, given two stations $a$ and $b$, the path $a \rightarrow b$ and the path $b \rightarrow a$ are necessarily the same but in reverse. That means, because we changed the code to build the paths heading to $a$ while it builds the paths heading from $a$, there is no need to build paths heading to $a$ again in the following iterations (for example $b \rightarrow a$, $c\rightarrow a$ etc.)
 
 \newpage
 

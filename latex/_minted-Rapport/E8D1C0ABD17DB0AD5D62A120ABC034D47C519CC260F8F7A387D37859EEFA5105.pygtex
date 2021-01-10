@@ -13,21 +13,20 @@
 		\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Please consider using Dijkstra Algorithm on weighted graph if you would like to find shortest paths.\PYGZdq{}}\PYG{p}{);}
 		
 	\PYG{p}{\PYGZcb{}}	
-		\PYG{k}{while} \PYG{p}{(}\PYG{o}{!}\PYG{n}{toVisitNodes}\PYG{p}{.}\PYG{n+na}{isEmpty}\PYG{p}{())} \PYG{p}{\PYGZob{}}
+	\PYG{k}{while} \PYG{p}{(}\PYG{o}{!}\PYG{n}{toVisitNodes}\PYG{p}{.}\PYG{n+na}{isEmpty}\PYG{p}{())} \PYG{p}{\PYGZob{}}
 
-			\PYG{k+kt}{int} \PYG{n}{currentNode} \PYG{o}{=} \PYG{n}{toVisitNodes}\PYG{p}{.}\PYG{n+na}{remove}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{);}
-			\PYG{n}{mapMPD}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{n}{currentNode}\PYG{p}{).}\PYG{n+na}{marked} \PYG{o}{=} \PYG{k+kc}{true}\PYG{p}{;}
-			\PYG{n}{path}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{n}{currentNode}\PYG{p}{);}
-			
-			\PYG{k}{for} \PYG{p}{(}\PYG{n}{DirectedEdge} \PYG{n}{edge} \PYG{p}{:} \PYG{n}{G}\PYG{p}{.}\PYG{n+na}{getMap}\PYG{p}{().}\PYG{n+na}{get}\PYG{p}{(}\PYG{n}{currentNode}\PYG{p}{))} \PYG{p}{\PYGZob{}}
-				\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{toVisitNodes}\PYG{p}{.}\PYG{n+na}{contains}\PYG{p}{(}\PYG{n}{edge}\PYG{p}{.}\PYG{n+na}{to}\PYG{p}{())} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{o}{!}\PYG{n}{mapMPD}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{n}{edge}\PYG{p}{.}\PYG{n+na}{to}\PYG{p}{()).}\PYG{n+na}{marked}\PYG{p}{)} \PYG{p}{\PYGZob{}}
-					\PYG{n}{toVisitNodes}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{n}{edge}\PYG{p}{.}\PYG{n+na}{to}\PYG{p}{());}
-					\PYG{n}{mapMPD}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{n}{edge}\PYG{p}{.}\PYG{n+na}{to}\PYG{p}{()).}\PYG{n+na}{previous} \PYG{o}{=} \PYG{n}{currentNode}\PYG{p}{;}
-					\PYG{n}{mapMPD}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{n}{edge}\PYG{p}{.}\PYG{n+na}{to}\PYG{p}{()).}\PYG{n+na}{distance} \PYG{o}{=} \PYG{n}{mapMPD}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{n}{currentNode}\PYG{p}{).}\PYG{n+na}{distance}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}					
-				\PYG{p}{\PYGZcb{}}
+		\PYG{k+kt}{int} \PYG{n}{currentNode} \PYG{o}{=} \PYG{n}{toVisitNodes}\PYG{p}{.}\PYG{n+na}{remove}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{);}
+		\PYG{n}{mapMPD}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{n}{currentNode}\PYG{p}{).}\PYG{n+na}{marked} \PYG{o}{=} \PYG{k+kc}{true}\PYG{p}{;}
+		\PYG{n}{path}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{n}{currentNode}\PYG{p}{);}
+		
+		\PYG{k}{for} \PYG{p}{(}\PYG{n}{DirectedEdge} \PYG{n}{edge} \PYG{p}{:} \PYG{n}{G}\PYG{p}{.}\PYG{n+na}{getMap}\PYG{p}{().}\PYG{n+na}{get}\PYG{p}{(}\PYG{n}{currentNode}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+			\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{toVisitNodes}\PYG{p}{.}\PYG{n+na}{contains}\PYG{p}{(}\PYG{n}{edge}\PYG{p}{.}\PYG{n+na}{to}\PYG{p}{())} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{o}{!}\PYG{n}{mapMPD}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{n}{edge}\PYG{p}{.}\PYG{n+na}{to}\PYG{p}{()).}\PYG{n+na}{marked}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+				\PYG{n}{toVisitNodes}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{n}{edge}\PYG{p}{.}\PYG{n+na}{to}\PYG{p}{());}
+				\PYG{n}{mapMPD}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{n}{edge}\PYG{p}{.}\PYG{n+na}{to}\PYG{p}{()).}\PYG{n+na}{previous} \PYG{o}{=} \PYG{n}{currentNode}\PYG{p}{;}
+				\PYG{n}{mapMPD}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{n}{edge}\PYG{p}{.}\PYG{n+na}{to}\PYG{p}{()).}\PYG{n+na}{distance} \PYG{o}{=} \PYG{n}{mapMPD}\PYG{p}{.}\PYG{n+na}{get}\PYG{p}{(}\PYG{n}{currentNode}\PYG{p}{).}\PYG{n+na}{distance}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}					
 			\PYG{p}{\PYGZcb{}}
 		\PYG{p}{\PYGZcb{}}
-	\PYG{c+c1}{//\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
 	\PYG{k}{return} \PYG{n}{path}\PYG{p}{;}
-\PYG{p}{\PYGZcb{}}	
+\PYG{p}{\PYGZcb{}}
 \end{Verbatim}
