@@ -24,7 +24,7 @@ public class Graph {
 			addWeightsFromTxt(stopsFile);
 		}
 	}
-
+	
 	private void addNodesFromTxt(File stopsFile) throws FileNotFoundException {
 
 		Scanner myReader = new Scanner(stopsFile);

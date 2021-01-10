@@ -9,7 +9,6 @@ import java.util.TreeSet;
 
 public class DijkstraSP {
 	private static Map<Integer, MPD> mapMPD = new TreeMap<Integer, MPD>();
-	private static Map<Integer, Map<Integer, String>> shortestPaths = new TreeMap<Integer, Map<Integer, String>>();
 	
 	public static List<Integer> dijkstra(Graph G, int startingNode) {
 		List<Integer> toVisitNodes = new ArrayList<Integer>();
@@ -61,83 +60,6 @@ public class DijkstraSP {
 			System.out.println("Dijkstra algorithm cannot be used as there is a negative weight in the graph!");
 		}
 		return path;
-	}
-	
-	public static void findShortestPaths(Graph G) {
-		//G.printAdj();
-		System.out.println("...Searching for all shortest paths...");
-		// Launch Dijkstra from every starting node
-		
-		Map<Integer, String> paths;
-		int previousNode;
-		int currentNode;
-		String path;
-		String backwardPath;
-		boolean isThereAPath;
-		boolean test = false;
-		Map<Integer, String> pathList;
-		
-		// Intitialize unvisited
-		TreeSet<Integer> unvisited = new TreeSet<Integer>();
-		for (Map.Entry<Integer,List<DirectedEdge>> entry : G.getMap().entrySet()) {
-			unvisited.add(entry.getKey());
-		}
-		
-		for (int startingNode : G.getMap().keySet()) {
-			if (unvisited.contains(startingNode)) {
-				mapMPD.clear();
-				shortestPaths.clear();
-
-				if (startingNode == 3419) {
-					System.out.print("");
-				}
-				dijkstra(G, startingNode);
-
-				paths = new TreeMap<Integer, String>();
-				// Find the shortest path for every reached node
-				for(int destinationNode : unvisited) {
-					isThereAPath = true;
-					path = "";
-					backwardPath = "";
-					currentNode = destinationNode;
-					// Find shortest path, by looking for previous nodes
-					while (currentNode != startingNode) { // while path not complete
-						path = currentNode + " " + path; // for source -> destination path
-						backwardPath = backwardPath + " " + currentNode; // for destination -> source path
-
-						if (mapMPD.get(currentNode).previous == -1) { // it means there is no path between to the 2 edges
-							currentNode = startingNode;
-							isThereAPath = false;
-						} else {
-							previousNode = mapMPD.get(currentNode).previous;
-							// Find the edge between previous and currentNode
-							DirectedEdge edge = G.findEdge(previousNode, currentNode);
-							edge.addToCountSP(1); // We add the "score" to the edge
-							DirectedEdge edge2 = G.findEdge(currentNode, previousNode);
-							edge2.addToCountSP(1);
-							currentNode = previousNode;
-						}
-						
-					}
-					if (isThereAPath) {
-						path = startingNode + " " + path;
-						backwardPath = backwardPath + " " + startingNode;
-						pathList = shortestPaths.get(destinationNode);
-						
-						if (pathList == null)
-							pathList = new HashMap<Integer, String>();
-						pathList.put(startingNode, backwardPath);
-						
-						if (destinationNode != startingNode)
-							shortestPaths.put(destinationNode, pathList);
-						
-						paths.put(destinationNode, path);
-					}
-				}
-				shortestPaths.put(startingNode, paths);
-				unvisited.remove(startingNode);	
-			}
-		}
 	}
 	
 	public static void updateCountSP(Graph G) {

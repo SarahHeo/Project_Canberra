@@ -27,19 +27,19 @@ public class Main {
 		do {
 			System.out.println("\n"
 			+ "-------- Part 2 --------" + "\n"
-			+ "1- Build unweighted graph" + "\n"
-			+ "2- Build weighted graph" + "\n"
-			+ "3- Print unweighted graph" + "\n"
-			+ "4- Print weighted graph" + "\n"
+			+ "1- Build unweighted digraph" + "\n"
+			+ "2- Build weighted digraph" + "\n"
+			+ "3- Print unweighted digraph" + "\n"
+			+ "4- Print weighted digraph" + "\n"
 			
 			+ "-------- Part 3 --------" + "\n"
-			+ "5- Find shortest path on unweighted graph (BFS)" + "\n"
-			+ "6- Display all shortest paths on unweighted graph (BFS) [/!\\ takes lots of resources]" + "\n"
-			+ "7- Find shortest path on weighted graph (Dijkstra)" + "\n"
-			+ "8- Display all shortest paths on weighted graph (Dijkstra) [/!\\ takes lots of resources]" + "\n"
+			+ "5- Find shortest path on unweighted digraph (BFS)" + "\n"
+			+ "6- Display all shortest paths on unweighted digraph (BFS) [/!\\ takes lots of resources]" + "\n"
+			+ "7- Find shortest path on weighted digraph (Dijkstra)" + "\n"
+			+ "8- Display all shortest paths on weighted digraph (Dijkstra) [/!\\ takes lots of resources]" + "\n"
 			
 			+ "-------- Part 4 --------" + "\n"
-			+ "9-" + "\n"
+			+ "9- Create n clusters out of a unweighted graph" + "\n"
 			
 			+ "0- Quit" + "\n");
 			

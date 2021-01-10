@@ -38,6 +38,7 @@ public class GraphClustering {
 		int startingNode;
 		int destinationNode;
 		int edge_betweenness;
+		int nbOfRemovedEdges = 0;
 		
 		//G.removeEdge(8889,3356);
 		//G.removeEdge(8888,3003);
@@ -48,7 +49,6 @@ public class GraphClustering {
 			
 			G.resetAllCountSP();
 			DijkstraSP.updateCountSP(G);
-			findClusters(G);
 			
 			startingNode = -1;
 			destinationNode = -1;
@@ -68,9 +68,11 @@ public class GraphClustering {
 			System.out.println("Edge (" + startingNode + ";" + destinationNode + ") with " + edge_betweenness + " SP going through will be removed");
 			// Remove the edge
 			G.removeEdge(startingNode, destinationNode);
-			
+			nbOfRemovedEdges++;
+			findClusters(G);
 			printClusters();
 		}
+		System.out.println(nbOfRemovedEdges + " edges have been removed");
 	}
 	
 	public static void printClusters() {
