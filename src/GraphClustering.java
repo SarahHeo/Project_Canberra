@@ -45,6 +45,8 @@ public class GraphClustering {
 		//G.removeEdge(3356,3419);
 		//G.removeEdge(3419,4530);
 		
+		findClusters(G);
+		
 		while (clusters.size() < n){
 			
 			G.resetAllCountSP();
@@ -63,6 +65,12 @@ public class GraphClustering {
 						edge_betweenness = edge.getCountSP();
 					}
 				}
+			}
+			
+			if (edge_betweenness == 0) {
+				System.out.println("There is not any edge left to removed.");
+				printClusters();
+				break;
 			}
 			
 			System.out.println("Edge (" + startingNode + ";" + destinationNode + ") with " + edge_betweenness + " SP going through will be removed");
